@@ -1,0 +1,9 @@
+import com.seven10.hydra.User
+
+model {
+	User user
+}
+
+json g.render(user, [excludes: ['id']]) {
+    id user.id.toString()
+}

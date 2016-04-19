@@ -1,0 +1,350 @@
+
+.navbar-header
+{
+      background-color:#35495B;
+}
+.mobile-menu-logo
+{
+      padding-top:.4em;
+}
+
+.mobile-menu-icon
+{
+      padding-top:.4em;
+      font-size:2.5em;
+      color:#5FBD5F;
+
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form
+{
+      border-color: #35495B;
+}
+
+.sidebar-menu-ul {
+      list-style-type:none;
+      margin:0;
+      padding:0;
+      position: absolute;
+      width: 100%;
+      cursor:pointer;
+}
+
+/*Create a horizontal list with spacing*/
+.sidebar-menu-li {
+      display:inline-block;
+      float: left;
+      margin-right: 1px;
+      width: 100%;
+      cursor:pointer;
+}
+
+/*Style for menu links*/
+.sidebar-menu-li-a {
+      display:block;
+      min-width:140px;
+      height: 50px;
+      line-height: 50px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #fff;
+      background: #35495B;
+      text-decoration: none;
+      width: 100%;
+      cursor:pointer;
+
+}
+
+.sidebar-menu-icon
+{
+      padding-left: 20px;
+      padding-right: 10px;
+      font-size:1.5em;
+}
+
+.sidebar-sub-menu-item
+{
+      padding-left:40px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      cursor:pointer;
+      font-weight: 500;
+      font-size:1.2em;
+}
+
+.sidebarsubmenuitemactive
+{
+      color:#57AB5D;
+      background:#4b6780;
+      font-weight: 500;
+      font-size:1.2em;
+}
+
+.mobile-menu-ul {
+      list-style-type:none;
+      margin:0;
+      padding:0;
+      position: absolute;
+      width: 100%;
+}
+
+/*Create a horizontal list with spacing*/
+.mobile-menu-li {
+      display:inline-block;
+      float: left;
+      margin-right: 1px;
+      width: 100%;
+}
+
+/*Style for menu links*/
+.mobile-menu-li-a {
+      display:block;
+      min-width:140px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #fff;
+      background: #35495B;
+      text-decoration: none;
+      width: 100%;
+}
+
+.mobile-menu-li-a {
+      display:block;
+      min-width:140px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #fff;
+      background: #35495B;
+      text-decoration: none;
+      width: 100%;
+}
+
+.mobile-menu-li-a:hover {
+      display:block;
+      text-align: center;
+      line-height: 50px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #fff;
+      background: #2F3036;
+      text-decoration: none;
+      width: 100%;
+      cursor:pointer;
+}
+
+
+/*Hide dropdown links until they are needed*/
+.mobile-menu-li-ul {
+
+      display: block;
+}
+
+/*Make dropdown links vertical*/
+.mobile-sub-menu {
+      background-color:#51708B;
+      display: block;
+      float: none;
+
+}
+
+.mobile-sub-menu-item:hover {
+      background-color:#7896b0;
+}
+
+.mobile-sub-menu-item
+{
+      background-color: #2F3036;
+      text-align: center;
+      line-height: 50px;
+}
+
+/*Prevent text wrapping*/
+.mobile-menu-li-ul-li-a {
+      width: auto;
+      height: 50px;
+      min-width: 100px;
+      padding: 0 20px;
+}
+
+/*Display the dropdown on hover*/
+.mobile-menu-li-ul-li-a:hover + .hidden, .hidden:hover {
+      display: block;
+}
+
+/*Hover state for top level links
+li:hover a {
+      background: #19c589;
+}
+
+/*Style for dropdown links
+li:hover ul a {
+      background: #f3f3f3;
+      color: #2f3036;
+      height: 40px;
+      line-height: 40px;
+}
+*/
+
+@media (max-width: 768px)
+{
+      /* body container */
+      #main-content
+      {
+
+      margin-left: 0px!important;
+      position: none !important;
+      }
+
+
+
+
+      /*sidebar*/
+      #sidebar
+      {
+            display:none;
+      }
+
+      .header
+      {
+            display:none;
+      }
+
+      #sidebar > ul > li > a > span
+      {
+            line-height: 35px;
+      }
+
+      #sidebar > ul > li
+      {
+            margin: 0 10px 5px 10px;
+      }
+
+      #sidebar > ul > li > a
+      {
+            height:35px;
+            line-height:35px;
+            padding: 0 10px;
+            text-align: left;
+      }
+
+      #sidebar > ul > li > a i
+      {
+            /*display: none !important;*/
+      }
+
+      #sidebar ul > li > a .arrow, #sidebar > ul > li > a .arrow.open
+      {
+            margin-right: 10px;
+            margin-top: 15px;
+      }
+
+      #sidebar ul > li.active > a .arrow, #sidebar ul > li > a:hover .arrow, #sidebar ul > li > a:focus .arrow,
+      #sidebar > ul > li.active > a .arrow.open, #sidebar > ul > li > a:hover .arrow.open, #sidebar > ul > li > a:focus .arrow.open{
+      margin-top: 15px;
+      }
+
+      #sidebar > ul > li > a, #sidebar > ul > li > ul.sub > li
+      {
+            width: 100%;
+      }
+
+      #sidebar > ul > li > ul.sub > li > a
+      {
+            background: transparent !important ;
+      }
+
+      #sidebar > ul > li > ul.sub > li > a:hover
+      {
+
+      }
+
+
+      /* sidebar */
+      #sidebar
+      {
+            margin: 0px !important;
+      }
+
+      /* sidebar collabler */
+      #sidebar .btn-navbar.collapsed .arrow
+      {
+            display: none;
+      }
+
+      #sidebar .btn-navbar .arrow
+      {
+            position: absolute;
+            right: 35px;
+            width: 0;
+            height: 0;
+            top:48px;
+            border-bottom: 15px solid #282e36;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+      }
+}
+
+@media (max-width: 480px)
+{
+      .wrapper
+      {
+            margin-top: 50px;
+      }
+
+      .notify-row, .search, .dont-show , .inbox-head .sr-input, .inbox-head .sr-btn
+      {
+            display: none;
+      }
+
+      #top_menu .nav > li, ul.top-menu > li
+      {
+            float: right;
+      }
+      .hidden-phone
+      {
+            display: none !important;
+      }
+
+
+      .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus
+      {
+            background-color: #ccc;
+            border-color:#ccc ;
+      }
+
+}
+
+@media (max-width:320px)
+{
+      .notify-row, .search, .dont-show, .inbox-head .sr-input, .inbox-head .sr-btn
+      {
+            display: none;
+      }
+
+      #top_menu .nav > li, ul.top-menu > li
+      {
+            float: right;
+      }
+
+      .hidden-phone
+      {
+            display: none !important;
+      }
+      .lock-wrapper
+      {
+            margin: 10% auto;
+            max-width: 310px;
+      }
+      .lock-input
+      {
+            width: 82%;
+      }
+
+      .cmt-form
+      {
+            display: inline-block;
+            width: 75%;
+      }
+
+}

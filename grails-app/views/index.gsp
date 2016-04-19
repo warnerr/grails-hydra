@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Angular Material - Starter App</title>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1"/>
+
+    <link rel="stylesheet" href="app/assets/app.css"/><link href="node_modules/angular-material/angular-material.css" rel="stylesheet"/>
+    <link href="node_modules/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css"/>
+    <link href="app/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="app/assets/css/font-awesome.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+</head>
+
+<body ng-app="app" layout="column">
+<app>
+    <md-toolbar layout="row">
+        <md-button
+                class="menu"
+                ng-click="null" aria-label="Show User List">
+
+            <md-icon md-svg-icon="menu"></md-icon>
+
+        </md-button>
+        <div class="col-sm-4" layout-align="center center">
+            <img src="app/assets/img/horizontal-logo-1.gif" class="img-responsive" alt="Responsive image">
+        </div>
+    </md-toolbar>
+
+    <div layout="vertical" layout-fill>
+        <!-- side nav goes here -->
+        <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2" layout-fill>
+            <md-content flex role="navigation">
+                <md-list flex layout-margin>
+                    <md-list-item class="md-1-line" ng-click="null" href="#dashboard">
+                        <i class="fa fa-lg fa-dashboard" layout-margin></i>
+                        <h5>Dashboard</h5>
+                    </md-list-item>
+                    <md-list-item class="md-1-line" ng-click="null" href="#jobs">
+                        <i class="fa fa-lg fa-briefcase" layout-margin></i>
+                        <h5>Jobs</h5>
+                    </md-list-item>
+                    <md-list-item class="md-1-line" ng-click="null" href="#devices">
+                        <i class="fa fa-lg fa-server" layout-margin></i>
+                        <h5>Devices</h5>
+                    </md-list-item>
+                    <md-list-item class="md-1-line" ng-click="null" href="#security">
+                        <i class="fa fa-lg fa-cogs" layout-margin></i>
+                        <h5>Settings</h5>
+                    </md-list-item>
+
+            </md-content>
+        </md-sidenav>
+        <md-content flex id="content" layout="column">
+            <!-- content goes here -->
+            <ng-outlet></ng-outlet>
+        </md-content>
+    </div>
+</app>
+<script src="node_modules/angular/angular.js" type="text/javascript"></script>
+<script src="node_modules/angular-animate/angular-animate.js" type="text/javascript"></script>
+<script src="node_modules/angular-aria/angular-aria.js" type="text/javascript"></script>
+<script src="node_modules/angular-material/angular-material.js" type="text/javascript"></script>
+<script src="node_modules/@angular/router/angular1/angular_1_router.js"></script>
+<script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
+<script src="node_modules/angular-material-data-table/dist/md-data-table.min.js"></script>
+<script src="app/app.js"></script>
+<script src="app/layout/layoutShell.js" type="text/javascript"></script>
+</body>
+</html>

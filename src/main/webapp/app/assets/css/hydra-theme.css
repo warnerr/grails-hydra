@@ -1,0 +1,2133 @@
+/* Hydra Theme CSS
+
+      We need to make this theme searchable for ease of use, since in theory it
+      could eventually get pretty big.  So anytime you add something that is not
+      in a section we should include in the below navigation and what is included
+      in the below navigation
+
+      1. Basic Theme Configuration
+            - contains: body,links, containers
+
+      2. Sidebar Navigation Configuration
+            a. Left Navigation Icon
+            b. Sidebar Toggle
+
+            - All things for the sidebar menu we are using
+
+      3. Top Menu Nav Bar
+      4. Main content configuration
+      5. Bootstrap Overrides Section
+      6. Helpers
+      7. Login Page CSS
+      8. File Upload
+      9. Form Overrides
+      10.Modals
+      11. Plugin Overrides
+      12.Drag and Drop List
+
+*/
+
+
+/* 1. BASIC THEME CONFIGURATION */
+body
+{
+      background-color:#F0F0F0;
+      font-family: 'Ruda', sans-serif;
+      padding: 0px !important;
+      margin: 0px !important;
+      font-size:13px;
+	height:100%;
+      color:#ffffff;
+}
+
+
+a, a:hover, a:focus
+{
+      text-decoration: none;
+      outline: none;
+}
+::selection
+{
+
+      background: #68dff0;
+      color: #fff;
+}
+pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #fff;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #4B6780;
+    border: 0px solid #ccc;
+    border-radius: 0px;
+}
+
+#container
+{
+      width: 100%;
+      height: 100%;
+}
+
+.version
+{
+    margin-left:25px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.row
+{
+      padding-top:25px;
+      margin-left: 15px;
+      margin-right: 15px;
+}
+
+/*    2. Sidebar Navigation Configuration
+
+      This section has everything related to the sidebar navigation panel.
+      It has the following sub sections:
+
+            - Left Navigation Icon
+            - Sidebar Toggle
+
+*/
+
+#sidebar
+{
+      width: 210px;
+      height: 100%;
+      position: fixed;
+      background: #35495B;
+}
+
+#sidebar h5
+{
+      color: #f2f2f2;
+      font-weight: 700;
+}
+
+#sidebar ul li
+{
+      position: relative;
+}
+
+#sidebar .sub-menu > .sub li
+{
+      padding-left: 32px;
+}
+
+#sidebar .sub-menu > .sub li:last-child
+{
+      padding-bottom: 10px;
+}
+
+/*LEFT NAVIGATION ICON*/
+.dcjq-icon
+{
+      height:17px;
+      width:17px;
+      display:inline-block;
+      background: url("../img/nav-expand.png") no-repeat top;
+      border-radius:3px;
+      -moz-border-radius:3px;
+      -webkit-border-radius:3px;
+      position:absolute;
+      right:10px;
+      top:15px;
+}
+.active .dcjq-icon
+{
+      background: url("../img/nav-expand.png") no-repeat bottom;
+      border-radius:3px;
+      -moz-border-radius:3px;
+      -webkit-border-radius:3px;
+}
+
+
+.nav-collapse.collapse
+{
+      display: inline;
+}
+
+/*
+      NOTE: This is what makes it so that the bullets and numbers do not show up in
+            the lists
+*/
+ul.sidebar-menu , ul.sidebar-menu li ul.sub
+{
+      list-style: outside none none;
+      margin: -2px 0 0;
+      padding: 0;
+}
+
+ul.sidebar-menu
+{
+      margin-top: 125px;
+      padding-bottom: 25px;
+}
+
+#sidebar > ul > li > ul.sub
+{
+      display: none;
+}
+
+#sidebar > ul > li.active > ul.sub, #sidebar > ul > li > ul.sub > li > a
+{
+      display: block;
+}
+
+ul.sidebar-menu li ul.sub li
+{
+      background: #424a5d;
+      margin-bottom: 0;
+      margin-left: 0;
+      margin-right: 0;
+}
+
+ul.sidebar-menu li ul.sub li:last-child
+{
+      border-radius: 0 0 4px 4px;
+      -webkit-border-radius: 0 0 4px 4px;
+}
+
+ul.sidebar-menu li ul.sub li a
+{
+      font-size: 12px;
+      padding: 6px 0;
+      line-height: 35px;
+      height: 35px;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      color: #FFFFFF;
+}
+
+ul.sidebar-menu li ul.sub li a:hover
+{
+      color: white;
+      background: transparent;
+}
+
+ul.sidebar-menu li ul.sub li.active a
+{
+      color: #68dff0;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      display: block;
+}
+
+ul.sidebar-menu li
+{
+      /*line-height: 20px !important;*/
+      margin-bottom: 5px;
+      margin-left:10px;
+      margin-right:10px;
+}
+
+ul.sidebar-menu li.sub-menu
+{
+      line-height: 15px;
+}
+
+ul.sidebar-menu li a span
+{
+      display: inline-block;
+}
+
+ul.sidebar-menu li a
+{
+      color: #aeb2b7;
+      text-decoration: none;
+      display: block;
+      padding: 15px 0 15px 10px;
+      font-size: 12px;
+      outline: none;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+}
+
+ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus
+{
+      background: #68dff0;
+      color: #fff;
+      display: block;
+
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+}
+
+
+ul.sidebar-menu li a i
+{
+      font-size: 15px;
+      padding-right: 6px;
+}
+
+ul.sidebar-menu li a:hover i, ul.sidebar-menu li a:focus i
+{
+      color: #fff;
+}
+
+ul.sidebar-menu li a.active i
+{
+      color: #fff;
+}
+
+
+.mail-info, .mail-info:hover
+{
+      margin: -3px 6px 0 0;
+      font-size: 11px;
+}
+
+/*-- Sidebar Toggle ---*/
+
+.sidebar-toggle-box
+{
+      float: left;
+      padding-right: 15px;
+      margin-top: 20px;
+}
+
+.sidebar-toggle-box .fa-bars
+{
+      cursor: pointer;
+      display: inline-block;
+      font-size: 2.5em;
+      color: white;
+      padding-top: 10px;
+
+}
+
+.sidebar-closed > #sidebar > ul
+{
+      display: none;
+}
+
+.sidebar-closed #main-content
+{
+      margin-left: 0px;
+}
+
+.sidebar-closed #sidebar
+{
+      margin-left: -180px;
+}
+
+/* 3. Top Menu Nav Bar CONFIGURATION
+
+      This is the main content configuration css.  Basically anything that
+      is outside of the left nav bar and top nav bar menu
+
+*/
+#top_menu .nav > li, ul.top-menu > li
+{
+      float: left;
+}
+
+a.logo
+{
+      font-size: 20px;
+      color: #44BBA2;
+      float: left;
+      margin-top: 15px;
+      text-transform: uppercase;
+}
+
+
+a.logo b
+{
+      font-weight: 900;
+}
+
+a.logo:hover, a.logo:focus
+{
+      text-decoration: none;
+      outline: none;
+}
+
+a.logo span
+{
+      color: #44BBA2;
+}
+
+
+ul.top-menu > li > a
+{
+      color: #666666;
+      font-size: 16px;
+      border-radius: 4px;
+      -webkit-border-radius: 4px;
+      border:1px solid #666666 !important;
+      padding: 2px 6px;
+      margin-right: 15px;
+}
+
+ul.top-menu > li > a:hover, ul.top-menu > li > a:focus
+{
+      border:1px solid #b6b6b6 !important;
+      background-color: transparent !important;
+      border-color: #b6b6b6 !important;
+      text-decoration: none;
+      border-radius: 4px;
+      -webkit-border-radius: 4px;
+      color: #b6b6b6 !important;
+}
+
+.top-nav ul.top-menu > li > a
+{
+      border: 1px solid #eeeeee;
+      border-radius: 4px;
+      -webkit-border-radius: 4px;
+      padding: 6px;
+      background: none;
+      margin-right: 0;
+}
+.top-nav ul.top-menu > li
+{
+      margin-left: 10px;
+}
+
+.top-nav ul.top-menu > li > a:hover, .top-nav ul.top-menu > li > a:focus
+{
+      border:1px solid #F1F2F7;
+      background: #F1F2F7;
+}
+
+ul.top-menu > li > .logout
+{
+      color: #f2f2f2;
+      font-size: 18px;
+      border-radius: 4px;
+      -webkit-border-radius: 4px;
+      border: 1px solid #64c3c2 !important;
+      padding: 15px 35px;
+      margin-right: 15px;
+      background: #5CB85C;
+      margin-top: 15px;
+}
+
+.top-nav .dropdown-menu.extended.logout
+{
+      top: 50px;
+}
+
+.top-nav .nav .caret
+{
+      border-bottom-color: #A4AABA;
+      border-top-color: #A4AABA;
+}
+.top-nav ul.top-menu > li > a:hover .caret
+{
+      border-bottom-color: #000;
+      border-top-color: #000;
+}
+
+.log-arrow-up
+{
+      background: url("../img/arrow-up.png") no-repeat;
+      width: 20px;
+      height: 11px;
+      position: absolute;
+      right: 20px;
+      top: -10px;
+}
+
+/*    4. Main content configuration
+
+      This is the main content configuration css.  Basically anything that
+      is outside of the left nav bar and top nav bar menu
+
+*/
+
+#main-content
+{
+      margin-left: 210px;
+
+      background: #F0F0F0;
+      height:100%;
+}
+
+.header, .footer
+{
+      min-height: 60px;
+      padding: 0 15px;
+}
+
+.header
+{
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: 1002;
+}
+
+.black-bg
+{
+      background: #35495B;
+      border-bottom: 5px solid #FFFFFF;
+}
+
+@media (max-width: 768px)
+{
+      .wrapper {
+            display: inline-block;
+            margin-top: 60px!important;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 15px;
+            padding-top: 0px;
+            width: 100%;
+            min-height: 100%;
+            position: relative;
+            margin-bottom: 100px;
+      }
+}
+
+.wrapper {
+      display: inline-block;
+      margin-top: 110px;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-bottom: 15px;
+      padding-top: 0px;
+      width: 100%;
+      min-height: 100%;
+      position: relative;
+      margin-bottom: 100px;
+}
+
+.site-footer
+{
+      width:100%;
+      height: 150px;
+      position: fixed;
+      bottom: 0;
+      left:0;
+      background:#35495B;
+      margin-bottom:-50px;
+}
+
+
+/*  5. Bootstrap Overrides Section
+
+
+*/
+
+html
+{
+      height:100%;
+
+}
+
+@media screen and (min-width: 768px)
+{
+  .equal, .equal > div[class*='col-']
+  {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex:1 0 auto;
+  }
+}
+
+.user-logged-icon
+{
+      font-size: 50px;
+      color:#FFFFFF;
+}
+
+.sortable-placeholder
+{
+
+      background:none;
+}
+
+.connected, .sortable-dash, .exclude, .handles {
+			margin: auto;
+			padding: 0;
+			width: inherit;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		.row .sortable-dash.grid {
+			overflow: hidden;
+		}
+
+            .connected.col-lg-4,.sortable-dash.col-lg-4,.exclude.col-lg-4,.handles.col-lg-4
+            {
+                  border: 1px solid #CCC;
+			background: #F6F6F6;
+			font-family: "Tahoma";
+			color: #1C94C4;
+			margin: 5px;
+			padding: 5px;
+			height: 22px;
+            }
+
+
+		.connected li, .sortable li, .exclude li, .handles li {
+			list-style: none;
+			border: 1px solid #CCC;
+			background: #F6F6F6;
+			font-family: "Tahoma";
+			color: #1C94C4;
+			margin: 5px;
+			padding: 5px;
+			height: 22px;
+		}
+
+
+
+    /* numbered buttons */
+    #status-buttons                 {  }
+    #status-buttons a               { color:#FFF; display:inline-block; font-size:12px; margin-right:10px; text-align:center; text-transform:uppercase; }
+    #status-buttons a:hover         { text-decoration:none; }
+
+    /* we will style the span as the circled number */
+    #status-buttons span            { background:#080808; display:block; height:30px; margin:0 auto 10px; padding-top:5px; width:30px;
+        border-radius:50%; }
+
+    /* active buttons turn light green-blue*/
+    #status-buttons a.active span   { background:#00BC8C; }
+
+    /* ANIMATION STYLINGS
+    ============================================================================= */
+    #signup-form            { position:relative; min-height:300px; overflow:hidden; padding:30px; }
+    #form-views             { width:auto; }
+
+    /* basic styling for entering and leaving */
+    /* left and right added to ensure full width */
+    #form-views.ng-enter,
+    #form-views.ng-leave      { position:absolute; left:30px; right:30px;
+        transition:0.5s all ease; -moz-transition:0.5s all ease; -webkit-transition:0.5s all ease;
+    }
+
+    /* enter animation */
+    #form-views.ng-enter            {
+        -webkit-animation:slideInRight 0.5s both ease;
+        -moz-animation:slideInRight 0.5s both ease;
+        animation:slideInRight 0.5s both ease;
+    }
+
+    /* leave animation */
+    #form-views.ng-leave            {
+        -webkit-animation:slideOutLeft 0.5s both ease;
+        -moz-animation:slideOutLeft 0.5s both ease;
+        animation:slideOutLeft 0.5s both ease;
+    }
+
+    /* ANIMATIONS
+    ============================================================================= */
+    /* slide out to the left */
+    @keyframes slideOutLeft {
+        to      { transform: translateX(-200%); }
+    }
+    @-moz-keyframes slideOutLeft {
+        to      { -moz-transform: translateX(-200%); }
+    }
+    @-webkit-keyframes slideOutLeft {
+        to      { -webkit-transform: translateX(-200%); }
+    }
+
+    /* slide in from the right */
+    @keyframes slideInRight {
+        from    { transform:translateX(200%); }
+        to      { transform: translateX(0); }
+    }
+    @-moz-keyframes slideInRight {
+        from    { -moz-transform:translateX(200%); }
+        to      { -moz-transform: translateX(0); }
+    }
+    @-webkit-keyframes slideInRight {
+        from    { -webkit-transform:translateX(200%); }
+        to      { -webkit-transform: translateX(0); }
+    }
+
+
+    .panel-body-form
+    {
+        padding: 15px;
+        background-color: #35495B;
+    }
+
+    .panel-default > .panel-heading-form {
+        color: #fff;
+        background-color: #35495B;
+        border-color: #fff;
+    }
+
+    .panel-title-margin {
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+
+/*    6. Helpers
+
+      Little nifty css classes to help us manage some things.  Such as spacing
+
+*/
+
+    .centered
+    {
+        text-align: center;
+    }
+
+    .goleft
+    {
+        text-align: left;
+    }
+
+    .goright
+    {
+        text-align: right;
+    }
+
+    .side-menu-margin-top
+    {
+        margin-top: 25px;
+    }
+
+    .spacer
+    {
+          padding-bottom:200px;
+    }
+
+    .spacer-sm
+    {
+          padding-bottom:50px;
+
+          color:#F0F0F0
+    }
+
+    .spacer-xsm
+    {
+          padding-bottom:25px;
+
+          color:#F0F0F0
+    }
+    .spacer-xxsm
+    {
+        padding-bottom:10px;
+
+        color:#F0F0F0
+    }
+
+    .spacer-md
+    {
+          padding-bottom:100px;
+    }
+
+    .white
+    {
+          color:#FFFFFF;
+    }
+
+    .white-BG
+    {
+          background:#FFFFFF;
+    }
+
+
+    .arrowPointer
+    {
+        cursor:pointer;
+    }
+
+    .whiteText
+    {
+        color:#fff;
+    }
+
+    .pageTitle
+    {
+        color:#35495B;
+    }
+
+    .bg-green {
+        background-color: #5CB85C;
+    }
+
+    .green{
+        color:#5CB85C;
+    }
+
+    .red{
+        color:#C9302C;
+    }
+
+    .tableNoBorder
+    {
+        border-style:none;
+        border-collapse: separate;
+        border-spacing: 10px 15px;
+        padding-bottom: 25px;
+    }
+
+    .padding-left
+    {
+        padding-left:20px;
+    }
+
+/*    7. Login Page CSS
+*
+*
+*
+*/
+
+    #LoginForm
+    {
+          background-color: #35495B;
+          width: 100%;
+          min-height: 100%;
+          position: absolute;
+    }
+
+    form.login
+    {
+          padding-top:5%;
+          width: 350px;
+          margin: 0 auto;
+    }
+
+    form.login [type="text"], form.login input[type="password"]
+    {
+        width: 100%;
+        margin: 0;
+        padding: 5px 10px;
+        background: 0;
+        border: 0;
+        border-bottom: 1px solid #FFFFFF;
+        outline: 0;
+        font-style: italic;
+        font-size: 2em;
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+        color: #FFFFFF;
+        outline: 0;
+    }
+
+    form.login input[type="submit"]
+    {
+        width: 100%;
+        font-size: 2em;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-top: 16px;
+        outline: 0;
+        cursor: pointer;
+        letter-spacing: 1px;
+    }
+
+    form.login input[type="submit"]:hover
+    {
+        transition: background-color 0.5s ease;
+    }
+
+    form.login .remember-forgot
+    {
+        float: left;
+        width: 100%;
+        margin: 10px 0 0 0;
+    }
+    form.login .forgot-pass-content
+    {
+        min-height: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    form.login label, form.login a
+    {
+        font-size: 1.2em;
+        font-weight: 400;
+        color: #FFFFFF;
+    }
+
+    form.login a
+    {
+        transition: color 0.5s ease;
+    }
+
+    form.login a:hover
+    {
+        color: #FFFFFF;
+    }
+
+    .inline-label
+    {
+          padding-right:25px;
+    }
+
+    .pr-wrap
+    {
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        display: none;
+    }
+
+    .show-pass-reset
+    {
+        display: block !important;
+    }
+
+    .pass-reset
+    {
+        margin: 0 auto;
+        width: 250px;
+        position: relative;
+        margin-top: 22%;
+        z-index: 999;
+        background: #FFFFFF;
+        padding: 20px 15px;
+    }
+
+    .pass-reset label
+    {
+        font-size: 1em;
+        font-weight: 400;
+        margin-bottom: 15px;
+    }
+
+    .pass-reset input[type="email"]
+    {
+        width: 100%;
+        margin: 5px 0 0 0;
+        padding: 5px 10px;
+        background: 0;
+        border: 0;
+        border-bottom: 1px solid #000000;
+        outline: 0;
+        font-style: italic;
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+        color: #FFFFFF;
+        outline: 0;
+    }
+
+    .pass-reset input[type="submit"]
+    {
+        width: 100%;
+        border: 0;
+        font-size: 2em;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-top: 10px;
+        outline: 0;
+        cursor: pointer;
+        letter-spacing: 1px;
+    }
+
+    .pass-reset input[type="submit"]:hover
+    {
+        transition: background-color 0.5s ease;
+    }
+    .posted-by
+    {
+        position: absolute;
+        bottom: 26px;
+        margin: 0 auto;
+        color: #FFF;
+        background-color: rgba(0, 0, 0, 0.66);
+        padding: 10px;
+        left: 45%;
+    }
+
+    .form-title
+    {
+          color:#FFFFFF;
+    }
+
+
+
+
+
+/*
+    Device Management Page
+*/
+
+.device-management-badges
+{
+    padding-top:15px;
+    padding-bottom:15px;
+}
+
+.device-management-badges.glyphicon
+{
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+      color:#5CB85C;
+    font-size: 1.9em;
+}
+
+.device-management-badges.fa
+{
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+      color:#5CB85C;
+    font-size: 5em;
+}
+
+.device-management-badges.fa.danger
+{
+    color:#D9534F;
+}
+
+.device-management-badges.fa.warning
+{
+    color:#F0AD4E;
+}
+
+
+#device-management-badge-strong
+{
+    color: #ffffff;
+    font-size: 2.5em;
+}
+
+
+
+
+
+.grid-inherit
+{
+    width:inherit;
+    height:inherit;
+}
+
+
+/*
+   This is the background of our overlay. We need it to be
+   absolutely positioned within the grid, and fill from
+   top to bottom, and the full width. It will also have
+   a black background with 40% opacity.
+*/
+.grid-overlay-msg {
+  position: absolute;
+  top: 50px;
+  bottom: 50px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/*
+  This guy will contain our message. We want it centered
+  so it's positioned absolutely with percentage-based
+  offsets and dimensions. It also has some basic border
+  stuff and most important is using "display: table" so
+  we can vertically center its contents.
+*/
+.grid-overlay-msg .msg {
+  opacity: 1;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  height: 50%;
+  background-color: #eee;
+  border-radius: 4px;
+  border: 1px solid #555;
+  text-align: center;
+  font-size: 24px;
+  display: table;
+}
+
+/*
+  Lastly this is the actual message text. It uses
+  display: table-cell so the vertical alignment
+  works properly.
+*/
+.grid-overlay-msg .msg span {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.progress-wrapper
+{
+      position: relative;
+      margin:20px auto;
+      font-size: 40px;
+      padding-top:20px;
+}
+
+.progress-knob{
+      position: relative;
+      color: #bbb;
+      font-weight: 100;
+      line-height: 1.3;
+}
+
+#updateDeviceBtn
+{
+      margin-left: 35%;
+      margin-top:15px;
+      margin-bottom:10px;
+}
+
+.danger
+{
+      color: #fff;
+      background-color: #d43f3a;
+      border-color: #d43f3a;
+}
+
+.danger:hover
+{
+      color: #fff;
+      background-color: #bc211a;
+      border-color: #d43f3a;
+}
+
+.warning
+{
+      color: #fff;
+      background-color: #f0efbd;
+      border-color: #d43f3a;
+}
+
+.primary
+{
+      color: #fff;
+      background-color: #3071a9;
+      border-color: #285e8e;
+}
+
+.pre-debug
+{
+      font-size: 10px;
+}
+
+
+
+.tile
+{
+      background-color:#35495B !important;
+      padding-top: 25px;
+      padding-bottom: 25px;
+}
+
+.device-job-badge-title
+{
+      margin-bottom:1em;
+}
+
+.device-job-badge-label
+{
+      margin-right:2em;
+}
+
+.device-job-badge-text
+{
+      margin-right:2em;
+      margin-top: 0px;
+      margin-bottom: 10px;
+      font-family: inherit;
+      font-weight: 500;
+      line-height: 1.1;
+      color: inherit;
+}
+
+.device-job-badge-icon
+{
+      color:#5CB85C;
+      padding-top: 0em;
+      padding-bottom: .15em;
+      font-size: 10em;
+}
+
+
+.agent-job-badge-icon
+{
+      color:#5CB85C;
+      padding-top: 0em;
+      padding-bottom: .15em;
+      font-size: 8em;
+}
+
+.dahsboard-badge
+{
+      padding-top: 0em;
+      color:#5CB85C;
+      padding-bottom: .15em;
+      font-size: 8em;
+      box-shadow: none;
+}
+
+.dahsboard-badge-text
+{
+      padding-top: 0em;
+      color:#FFFFFF;
+}
+
+.multiSelect
+{
+      min-width:360px;
+      color:#000;
+}
+
+.dateAndTime
+{
+      vertical-align: middle
+}
+
+.table > thead > tr > td.active,
+.table > tbody > tr > td.active,
+.table > tfoot > tr > td.active,
+.table > thead > tr > th.active,
+.table > tbody > tr > th.active,
+.table > tfoot > tr > th.active,
+.table > thead > tr.active > td,
+.table > tbody > tr.active > td,
+.table > tfoot > tr.active > td,
+.table > thead > tr.active > th,
+.table > tbody > tr.active > th,
+.table > tfoot > tr.active > th {
+      background-color: #51708b;
+}
+
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+      background-color: #51708b;
+}
+
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+      background-color: #51708b;
+}
+
+.table > thead > tr > td.success,
+.table > tbody > tr > td.success,
+.table > tfoot > tr > td.success,
+.table > thead > tr > th.success,
+.table > tbody > tr > th.success,
+.table > tfoot > tr > th.success,
+.table > thead > tr.success > td,
+.table > tbody > tr.success > td,
+.table > tfoot > tr.success > td,
+.table > thead > tr.success > th,
+.table > tbody > tr.success > th,
+.table > tfoot > tr.success > th
+{
+      background-color: #51708b;
+}
+
+.table > thead > tr > td.info,
+.table > tbody > tr > td.info,
+.table > tfoot > tr > td.info,
+.table > thead > tr > th.info,
+.table > tbody > tr > th.info,
+.table > tfoot > tr > th.info,
+.table > thead > tr.info > td,
+.table > tbody > tr.info > td,
+.table > tfoot > tr.info > td,
+.table > thead > tr.info > th,
+.table > tbody > tr.info > th,
+.table > tfoot > tr.info > th
+{
+      background-color: #119aad;
+}
+
+ .table > thead > tr > td.danger,
+ .table > tbody > tr > td.danger,
+ .table > tfoot > tr > td.danger,
+ .table > thead > tr > th.danger,
+ .table > tbody > tr > th.danger,
+ .table > tfoot > tr > th.danger,
+ .table > thead > tr.danger > td,
+ .table > tbody > tr.danger > td,
+ .table > tfoot > tr.danger > td,
+ .table > thead > tr.danger > th,
+ .table > tbody > tr.danger > th,
+ .table > tfoot > tr.danger > th {
+       background-color: #CD271B;
+ }
+
+.table > thead > tr > td.warning,
+.table > tbody > tr > td.warning,
+.table > tfoot > tr > td.warning,
+.table > thead > tr > th.warning,
+.table > tbody > tr > th.warning,
+.table > tfoot > tr > th.warning,
+.table > thead > tr.warning > td,
+.table > tbody > tr.warning > td,
+.table > tfoot > tr.warning > td,
+.table > thead > tr.warning > th,
+.table > tbody > tr.warning > th,
+.table > tfoot > tr.warning > th {
+      background-color: #F5C951;
+}
+
+a
+{
+      color: #68DFF0;
+      text-decoration: none;
+}
+
+a:hover, a:focus
+{
+      color: #5BB65B;
+      text-decoration: underline;
+}
+
+
+/* UI GRID */
+.ui-grid-top-panel
+{
+      background: -webkit-gradient(linear, left bottom, left top, color-stop(0, transparent), color-stop(1, transparent));
+}
+
+.ui-grid-row:nth-child(odd) .ui-grid-cell
+{
+      background-color: transparent;
+}
+
+.ui-grid-row:nth-child(even) .ui-grid-cell
+{
+      background-color: transparent;
+}
+
+.ui-grid-menu-button
+{
+      z-index: 2;
+      position: absolute;
+      right: 0;
+      top: 0;
+      background: transparent;
+      border: 1px solid #d4d4d4;
+      cursor: pointer;
+      height: 31px;
+      font-weight: normal;
+}
+
+.ui-grid-menu .ui-grid-menu-inner
+{
+      background: #f3f3f3;
+      color: #000;
+}
+
+select.ui-grid-filter-select
+{
+      color: #000;
+}
+
+input.ui-grid-filter-input
+{
+      border: 1px solid #d4d4d4;
+      color: #000;
+}
+
+
+
+.text-danger {
+      color: #FF0500;
+      font-weight: 900;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control
+{
+      background-color: #d8d8d8;
+}
+
+.ui-grid-cell-contents-hidden.ui-grid-cell-focus
+{
+      color:#000;
+}
+
+.ui-grid-viewport {
+      min-height: 20px;
+      position: relative;
+      background-color: #35495B;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+      color: #fff;
+}
+.ui-grid-render-container
+{
+      background-color: #35495B;
+      color:#fff;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+      font-family: inherit;
+      font-weight: 500;
+      line-height: 1.1;
+      color: #fff;
+}
+
+.expired-body
+{
+      padding-top: 10%;
+      width: 720px;
+      margin: 0 auto;
+}
+
+.not-allowed-lock
+{
+      font-size: 10em;
+      text-align:center;
+      color:#5BB65B;
+}
+
+
+
+.scrollme {
+    max-height: 200px;
+    overflow:hidden;
+
+}
+
+.ace_editor {
+      height: 400px;
+}
+
+.fileImportAce
+{
+      height: 200px;
+}
+
+
+a.bg-green:hover {
+      background-color: #c1e2b3;
+}
+
+
+.menu-highlight
+{
+      background-color: #FFFFFF;
+}
+
+
+
+button[disabled]
+{
+      cursor:not-allowed;
+}
+
+
+
+
+.jobmetrics-icons
+{
+      color: #5CB85C;
+      padding-right: 20px;
+      font-size: 5em;
+}
+
+.jobmetrics-copyText
+{
+      font-size:1.8em;
+      padding-top:15px;
+}
+
+
+/*  8. File Upload
+
+    Uploading a file.  This includes the progress bars for a file and the buttons used.
+
+    progress-file: Has smaller margins than a normal progress bar
+    btn-file: overflow is hidden
+    btn-file input[type=file]: make sure it aligns with the text field associated with it
+
+*/
+.progress-file {
+      height: 20px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      overflow: hidden;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+      -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+.btn-file
+{
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background: red;
+    cursor: inherit;
+    display: block;
+}
+
+/* 9. Form Overrides
+
+    There is a lot here.  Basically we want many of our forms to have a different look and feel to
+    them so each class has the appropriated stylings.
+
+    form-control-sm:            A smaller version of the form control class
+    input[readonly]:            If an input is read only we want a cursor of text.
+    textarea2:                  Not sure if we even use this.  TODO: Find out if its being used
+    form:                       Make sure the color of the text is black
+    label:                      Make sure the color of a lable is white
+    checkbox-less-padding:      Checkbox with less padding
+    checkbox-white label:       Checkbox label in white
+    checkbox label:             Checkbox label normal black
+    progress-label              Label for a progress bar
+*/
+
+.form-control-sm {
+    display: block;
+    width: 100%;
+    height: 18px;
+    padding: 6px 12px;
+    font-size: 10px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+
+input[readonly]
+{
+    background-color: white !important;
+    cursor: text !important;
+}
+
+.textarea2 {
+    height:400px;
+    color:#999;
+    font-weight:400;
+    font-size:12px;
+    font-family:'Ubuntu', Helvetica, Arial, sans-serif;
+    width:100%;
+    background:#fff;
+    border-radius:3px;
+    line-height:2em;
+    border:none;
+    box-shadow:0px 0px 5px 1px rgba(0,0,0,0.1);
+    padding:30px;
+    -webkit-transition: height .2s ease;
+    -moz-transition: height .2s ease;
+    -ms-transition: height .2s ease;
+    -o-transition: height .2s ease;
+    transition: height .2s ease;
+}
+
+form
+{
+    color:#000;
+}
+
+label
+{
+    color:#fff;
+}
+
+.input-group-addon-table{
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    background-color: transparent;
+    border: 0px solid #fff;
+    border-radius: 4px;
+}
+
+.checkbox-less-padding
+{
+    position: relative;
+    display: block;
+    min-height: 20px;
+}
+
+.checkbox-white label
+{
+    color:#fff;
+}
+
+.checkbox label
+{
+    color:#000;
+}
+
+.progress-label
+{
+    float: left;
+    margin-right: 1em;
+    margin-top: 0px;
+    margin-bottom:25px;
+}
+
+.tableForm {
+    margin: 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    width: 100%;
+    outline: 0;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+}
+/* 10. Modals
+*
+*   Any of our modal stylings should go here
+*
+*
+*/
+
+    /* Are you sure header for Modal*/
+    .dialog-header-error { background-color: #d2322d; }
+
+    .modal-body
+    {
+        background-color:#4b6780;
+    }
+
+    .modal-footer
+    {
+        background-color:#4b6780;
+    }
+
+    .text-danger-modal
+    {
+        color: #FFFFFF;
+    }
+
+    .pad-modal-danger
+    { padding-right: 10px; }
+
+    .dialog-header-normal { background-color:  #5CB85C; }
+
+    .text-normal-modal
+    {
+        color: #FFFFFF;
+    }
+
+    .pad-modal-normal
+    { padding-right: 10px; }
+
+
+    .modal-row
+    {
+        padding-top: 10px;
+    }
+
+    /*  Extra Large Modal */
+    .extra-lg-modal .modal-dialog
+    {
+        width: 90%;
+    }
+
+    /*  Large Modal */
+    .lg-modal .modal-dialog
+    {
+        padding-top:5%;
+        width: 70%;
+    }
+
+    /*  Large Modal */
+    .md-modal .modal-dialog
+    {
+        padding-top:5%;
+        width: 40%;
+    }
+
+    .modalMenu
+    {
+        color:#FFFFFF;
+        font-size:1.2em;
+        background-color: #4B6780;
+        border: none;
+    }
+    a:hover.modalMenu
+    {
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .activeModalLink
+    {
+        color: #13B79E;
+        font-weight: 900;
+        text-decoration: underline;
+    }
+
+/* 11. Plugin Overrides
+*   NgScrollBar                     The scrollbar we use
+*   Trashcan:                       Trashcan where we delete mappings or objects in the mappings
+*
+*/
+
+.ngsb-wrap .ngsb-scrollbar
+{
+    width: 7px !important;
+}
+
+.nv-axislabel
+{
+    text-anchor: inherit;
+}
+
+
+
+/* 12. Drag and Drop List
+*
+*   Required Styles:                TODO: Possibly Delete This
+*   Dropzone Sytling:               Styles for specific Dropzones
+*   Element Selection:              Selection Style
+*   Element type specific styles:   If we wanted sytles on specific elements this is the place
+*   Toolbox:                        Our toolbox where we add new items
+*   Trashcan:                       Trashcan where we delete mappings or objects in the mappings
+*
+*/
+
+    /***************************** Required styles *****************************/
+
+    /**
+     * For the correct positioning of the placeholder element, the dnd-list and
+     * it's children must have position: relative
+     */
+    .nestedDemo ul[dnd-list],
+    .nestedDemo ul[dnd-list] > li {
+        position: relative;
+    }
+
+    /***************************** Dropzone Styling *****************************/
+    .box {
+        margin-bottom: 20px;
+        background-color: #fff;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+        box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    }
+
+    .box > h3 {
+        color: #333;
+        border-color: #ddd;
+        border-bottom: 1px solid transparent;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+        background-repeat: repeat-x;
+        display: block;
+        font-size: 16px;
+        padding: 10px 15px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .box-padding {
+        padding: 15px;
+    }
+
+    .box-padding > h3 {
+        margin: -15px;
+        margin-bottom: 15px;
+    }
+
+    .box-grey {
+        border-color: #ddd;
+    }
+
+    .box-grey > h3 {
+        background-color: #f5f5f5;
+        background-image: -webkit-linear-gradient(top,#f5f5f5 0,#e8e8e8 100%);
+        background-image: linear-gradient(to bottom,#f5f5f5 0,#e8e8e8 100%);
+    }
+
+    .box-blue {
+        border-color: #bce8f1;
+    }
+
+    .box-blue > h3 {
+        color: #31708f;
+        background-color: #d9edf7;
+        border-color: #bce8f1;
+        background-image: -webkit-linear-gradient(top,#d9edf7 0,#c4e3f3 100%);
+        background-image: linear-gradient(to bottom,#d9edf7 0,#c4e3f3 100%);
+    }
+
+    .box-green
+    {
+        border-color: #5CB85C;
+    }
+
+    .box-green > h3 {
+        color: #fff;
+        background-color: #5CB85C;
+        border-color: #5CB85C;
+    }
+
+    /**
+     * The dnd-list should always have a min-height,
+     * otherwise you can't drop to it once it's empty
+     */
+    .dropzone ul[dnd-list] {
+        min-height: 42px;
+        margin: 0px;
+        padding-left: 0px;
+    }
+
+    /**
+     * The dnd-lists's child elements currently MUST have
+     * position: relative. Otherwise we can not determine
+     * whether the mouse pointer is in the upper or lower
+     * half of the element we are dragging over. In other
+     * browsers we can use event.offsetY for this.
+     */
+    .dropzone li {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        display: block;
+        padding: 0px;
+        color:#000000;
+    }
+
+    /**
+     * Reduce opacity of elements during the drag operation. This allows the user
+     * to see where he is dropping his element, even if the element is huge. The
+     * .dndDragging class is automatically set during the drag operation.
+     */
+    .dropzone .dndDragging {
+        opacity: 0.7;
+    }
+
+    /**
+     * The dndDraggingSource class will be applied to the source element of a drag
+     * operation. It makes sense to hide it to give the user the feeling that he's
+     * actually moving it. Note that the source element has also .dndDragging class.
+     */
+    .dropzone .dndDraggingSource {
+        display: none;
+    }
+
+    /**
+     * An element with .dndPlaceholder class will be added as child of the dnd-list
+     * while the user is dragging over it.
+     */
+    .dropzone .dndPlaceholder {
+        background-color: #ddd;
+        min-height: 42px;
+        display: block;
+        position: relative;
+    }
+
+    /***************************** Element Selection *****************************/
+
+    .dropzone .selected .resource {
+        color: #3c763d;
+        background-color: #dff0d8;
+    }
+
+    .dropzone .selected .box {
+        border-color: #d6e9c6;
+    }
+
+    .dropzone .selected .box > h3 {
+        color: #3c763d;
+        background-color: #dff0d8;
+        background-image: linear-gradient(to bottom,#dff0d8 0,#d0e9c6 100%);
+        border-color: #d6e9c6;
+    }
+
+    /***************************** Element type specific styles *****************************/
+
+    .dropzone .resource {
+        padding: 10px 15px;
+    }
+
+    .dropzone .container-element {
+        margin: 10px;
+    }
+
+    .dropzone .container-element .column {
+        float: left;
+        width: 50%;
+    }
+
+    /***************************** Toolbox *****************************/
+
+    .toolbox ul {
+        list-style: none;
+        padding-left: 0px;
+        cursor: move;
+    }
+
+    .toolbox button {
+        margin: 5px;
+        width: 123px;
+        opacity: 1.0;
+    }
+
+    .toolbox .dndDragging {
+        opacity: 0.5;
+    }
+
+    .toolbox .dndDraggingSource {
+        opacity: 1.0;
+    }
+
+    /***************************** Trashcan *****************************/
+
+    .trashcan ul {
+        list-style: none;
+        padding-left: 0px;
+    }
+
+    .trashcan img {
+        width: 100%;
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+
+    .trashcan .dndDragover img {
+        width: 100%;
+        -webkit-filter: none;
+        -moz-filter: none;
+        filter: none;
+    }
+
+    .trashcan .dndPlaceholder {
+        display: none;
+    }
+
+    /**
+     * For the correct positioning of the placeholder element, the dnd-list and
+     * it's children must have position: relative
+     */
+    ul[dnd-list],
+    ul[dnd-list] > li {
+        position: relative;
+    }
+
+    /**
+     * The dnd-list should always have a min-height,
+     * otherwise you can't drop to it once it's empty
+     */
+    ul[dnd-list] {
+        min-height: 42px;
+        padding-left: 0px;
+    }
+
+    /**
+     * The dndDraggingSource class will be applied to
+     * the source element of a drag operation. It makes
+     * sense to hide it to give the user the feeling
+     * that he's actually moving it.
+     */
+    ul[dnd-list] .dndDraggingSource {
+        display: none;
+    }
+
+    /**
+     * An element with .dndPlaceholder class will be
+     * added to the dnd-list while the user is dragging
+     * over it.
+     */
+    ul[dnd-list] .dndPlaceholder {
+        display: block;
+        background-color: #ddd;
+        min-height: 42px;
+    }
+
+    /**
+     * The dnd-lists's child elements currently MUST have
+     * position: relative. Otherwise we can not determine
+     * whether the mouse pointer is in the upper or lower
+     * half of the element we are dragging over. In other
+     * browsers we can use event.offsetY for this.
+     */
+    ul[dnd-list] li {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+        display: block;
+        padding: 10px 15px;
+        margin-bottom: -1px;
+
+        /* Disable text selection if item is not draggable */
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    /**
+     * Gender-specifc background
+     */
+    ul[dnd-list] li.background-man {
+        background-color: #CAE0FC;
+    }
+
+    ul[dnd-list] li.background-woman {
+        background-color: #FFE2F5;
+    }
+
+    ul[dnd-list] input.background-man {
+        background-color: #D8E9FF;
+        color: #2F4D99;
+    }
+
+    ul[dnd-list] input.background-woman {
+        background-color: #FFF0FA;
+        color: #D84FA7;
+    }
+
+    /**
+     * Handle positioning
+     */
+    .handle {
+        cursor: move;
+        position: absolute;
+        top: 14px;
+    }
+
+    .name {
+        margin-left: 20px;
+    }
+
+
+    /***************************** Required styles *****************************/
+
+    /**
+     * For the correct positioning of the placeholder element, the dnd-list and
+     * it's children must have position: relative
+     */
+    .advancedDemo ul[dnd-list],
+    .advancedDemo ul[dnd-list] > li {
+        position: relative;
+    }
+
+    /***************************** Dropzone Styling *****************************/
+
+    /**
+     * The dnd-list should always have a min-height,
+     * otherwise you can't drop to it once it's empty
+     */
+    .dropzone ul[dnd-list] {
+        min-height: 42px;
+        margin: 0px;
+        padding-left: 0px;
+    }
+
+    /**
+     * The dnd-lists's child elements currently MUST have
+     * position: relative. Otherwise we can not determine
+     * whether the mouse pointer is in the upper or lower
+     * half of the element we are dragging over. In other
+     * browsers we can use event.offsetY for this.
+     */
+    .dropzone li {
+        display: block;
+    }
+
+    /**
+     * Reduce opacity of elements during the drag operation. This allows the user
+     * to see where he is dropping his element, even if the element is huge. The
+     * .dndDragging class is automatically set during the drag operation.
+     */
+    .dropzone .dndDragging {
+        opacity: 0.7;
+    }
+
+    /**
+     * The dndDraggingSource class will be applied to the source element of a drag
+     * operation. It makes sense to hide it to give the user the feeling that he's
+     * actually moving it. Note that the source element has also .dndDragging class.
+     */
+    .dropzone .dndDraggingSource {
+        display: none;
+    }
+
+    /**
+     * An element with .dndPlaceholder class will be added as child of the dnd-list
+     * while the user is dragging over it.
+     */
+    .dropzone .dndPlaceholder {
+        background-color: #ddd !important;
+        min-height: 42px;
+        display: block;
+        position: relative;
+    }
+
+    /***************************** Element type specific styles *****************************/
+
+    .dropzone .itemlist {
+        min-height: 120px !important;
+    }
+
+    .dropzone .itemlist > li {
+        background-color: #337ab7;
+        border: none;
+        border-radius: .25em;
+        color: #fff;
+        float: left;
+        font-weight: 700;
+        height: 50px;
+        margin: 5px;
+        padding: 3px;
+        text-align: center;
+        width: 250px;
+    }
+
+    .dropzone .container-element {
+        margin: 10px;
+    }
+
+    .drag-n-drop-trash
+    {
+        font-size: 10em;
+        color:black;
+    }
+
+    .table > thead > tr > th.center-text,
+    .table > tbody > tr > td.center-text {
+        text-align: center;
+    }

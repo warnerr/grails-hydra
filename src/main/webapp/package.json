@@ -1,0 +1,22 @@
+{
+  "name": "material-hydra",
+  "private": true,
+  "version": "0.0.1",
+  "description": "A prototype project using material design and angular",
+  "repository": "https://github.com/warnerr/grails-hydra",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/router": "^0.2.0",
+    "angular": "^1.5.3",
+    "angular-animate": "^1.5.3",
+    "angular-aria": "^1.5.3",
+    "angular-material": "^1.0.7",
+    "angular-material-data-table": "^0.10.4",
+    "angular-messages": "^1.5.3",
+    "oclazyload": "^1.0.9"
+  },
+  "scripts": {
+    "postinstall": "bower update",
+    "prestart": "npm update"
+  }
+}
