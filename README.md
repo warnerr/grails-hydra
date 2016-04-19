@@ -2,7 +2,7 @@
 
 ## setup
 1. server side
-  *modify the Mongodb properties in grails-app/conf/application.yml file
+  * modify the Mongodb properties in grails-app/conf/application.yml file
 2. Client side
   * make sure nodejs is installed
   * run npm install in src/main/webapp directory
