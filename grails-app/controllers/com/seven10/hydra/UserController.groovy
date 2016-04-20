@@ -24,7 +24,7 @@ class UserController {
 
     def delete() {
         def id = params.id
-        respond userService.deleteUser(id)
+        render userService.deleteUser(id) as JSON
     }
 
     def update() {

@@ -18,7 +18,7 @@ class UserService {
     def addUser(Map user) {
         def newUser = new User(user)
         if (newUser.validate()) {
-            newUser.save(flush: true)
+            newUser.save()
         }
         else {
             newUser.errors.allErrors.each {
@@ -31,20 +31,21 @@ class UserService {
 
     def deleteUser(String userId) {
         def user = User.findById(new ObjectId(userId))
-        def status = user.delete(flush: true)
+        def status = user.delete()
         ['id': userId, 'status': status]
 
     }
 
     def updateUser(String userId, Map userUpdates) {
-        def user = User.findById(new ObjectId(userId))
-        user.properties = userUpdates
-        if (user.validate()) {
-            user.save(flush: true)
-        }
-        else {
-            user.errors.allErrors.each {
-                println it
+        def user = User.get(new ObjectId(userId))
+        if (user) {
+            user.properties = userUpdates
+            if (user.validate()) {
+                user.save()
+            } else {
+                user.errors.allErrors.each {
+                    println it
+                }
             }
         }
         user
