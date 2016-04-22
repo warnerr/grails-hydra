@@ -1,0 +1,10 @@
+<md-list flex class="md-dense">
+    <md-list-item class="md-2-line" ng-repeat="item in $ctrl.failedJobs" ng-click="null">
+        <md-icon md-font-set="zmdi zmdi-assignment-alert zmdi-hc-2x" layout-margin></md-icon>
+        <div class="md-list-item-text" layout="column">
+            <h5>{{ item.jobName }}</h5>
+            <h6>{{ item.error }}</h6>
+        </div>
+        <md-divider ng-if="!$last"></md-divider>
+    </md-list-item>
+</md-list>

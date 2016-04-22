@@ -3,7 +3,7 @@
  */
 (function() {
     angular
-        .module('app.dashboard.charts', ['ngMaterial', 'nvd3'])
+        .module('app.dashboard')
         .component('jobStatus', {
             templateUrl: 'app/dashboard/charts/cardChart.html',
             controller: JobStatusChart

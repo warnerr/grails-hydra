@@ -156,7 +156,11 @@ md-content.md-default-theme {
   color: #1C94C4;
 }
 
-#dashboard-content span.md-title {
+.failed-job-card .zmdi-assignment-alert {
+  color: red;
+}
+
+.dashboard-content span.md-title {
   color: #7A7A7A;
 }
 

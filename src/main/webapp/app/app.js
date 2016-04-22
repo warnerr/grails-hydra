@@ -1,13 +1,13 @@
 (function() {
     var app = angular.module('app', ['oc.lazyLoad', 'ngComponentRouter', 'ngMaterial'])
         .config(function ($mdIconProvider, $mdThemingProvider, $locationProvider) {
-            
+
             $mdIconProvider
                 .defaultIconSet("./assets/svg/avatars.svg", 128);
 
             $mdThemingProvider.theme('default')
                 .primaryPalette('blue-grey')
-                .accentPalette('yellow');
+                .accentPalette('red');
             $mdThemingProvider.theme('input', 'default')
                 .primaryPalette('grey');
 
@@ -27,9 +27,6 @@
                         name: 'Dashboard',
                         useAsDefault: true,
                         loader: function () {
-                            $ocLazyLoad.load('app/dashboard/charts/jobStatus/jobByStatus.component.js');
-                            $ocLazyLoad.load('app/dashboard/charts/deviceType/deviceType.component.js');
-                            $ocLazyLoad.load('app/dashboard/charts/migrations/migrations.component.js');
                             return $ocLazyLoad.load('app/dashboard/dashboard.component.js')
                                 .then(function () {
                                     return 'dashboard';

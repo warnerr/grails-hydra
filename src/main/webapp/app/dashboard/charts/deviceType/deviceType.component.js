@@ -3,7 +3,7 @@
  */
 (function () {
     angular
-        .module('app.dashboard.charts')
+        .module('app.dashboard')
         .component('deviceType', {
             templateUrl: 'app/dashboard/charts/cardChart.html',
             controller: DashboardCharts
