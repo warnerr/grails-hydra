@@ -3,11 +3,14 @@
  */
 (function() {
     angular
-        .module('app.dashboard', ['ngMaterial', 'ngComponentRouter', 'oc.lazyLoad'])
+        .module('app.dashboard', ['ngMaterial', 'nvd3', 'oc.lazyLoad'])
         .component('dashboard', {
             templateUrl: 'app/dashboard/dashboard.html',
-            controller: function () {
-                console.log('test dashboard controller');
-            }
+            controller: DashboardCharts
         });
+
+    function DashboardCharts($ocLazyLoad) {
+       
+    }
+
 })();

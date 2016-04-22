@@ -9,7 +9,7 @@
             controller: UserListComponent
         }).service('userService', UserService);
 
-    function UserListComponent($scope, $element, $attrs, userService, $mdDialog) {
+    function UserListComponent(userService, $mdDialog) {
         var selectedId = null;
         var $ctrl = this;
         $ctrl.selected = [];
@@ -27,7 +27,7 @@
         $ctrl.$routerOnActivate = function(next, previous) {
             // Load up the heroes for this view
             return userService.getUsers().then(function(users) {
-                $ctrl.users = users.data;
+                $ctrl.users = users;
                 selectedId = next.params.id;
             });
         };
@@ -56,10 +56,8 @@
 
     }
 
-    function UserService($http) {
-        var usersPromise = $http.get('user/index');
-
-        /*[
+    function UserService($q) {
+        var usersPromise = $q.when([
             {
                 "id": "56f2b8a0cd7338182f63ca68",
                 "username": "seven10",
@@ -83,7 +81,8 @@
                 "time_created": "Apr 6, 2016 12:43:01 PM",
                 "last_login_time": "Apr 6, 2016 12:43:01 PM",
                 "role": "SECURITY_ADMINISTRATOR"
-            }*/
+            }
+        ]);
 
         this.getUsers = function() {
             return usersPromise;

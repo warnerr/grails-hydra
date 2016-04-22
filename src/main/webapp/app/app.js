@@ -1,12 +1,12 @@
 (function() {
     var app = angular.module('app', ['oc.lazyLoad', 'ngComponentRouter', 'ngMaterial'])
         .config(function ($mdIconProvider, $mdThemingProvider, $locationProvider) {
-
+            
             $mdIconProvider
-                .defaultIconSet("app/assets/svg/avatars.svg", 128);
+                .defaultIconSet("./assets/svg/avatars.svg", 128);
 
             $mdThemingProvider.theme('default')
-                .primaryPalette('light-green')
+                .primaryPalette('blue-grey')
                 .accentPalette('yellow');
             $mdThemingProvider.theme('input', 'default')
                 .primaryPalette('grey');
@@ -14,47 +14,53 @@
         })
         .value('$routerRootComponent', 'app')
         .component('app', {
+            controllerAs: 'vm',
             controller: ['$rootRouter', '$ocLazyLoad', function ($router, $ocLazyLoad) {
-            
-            $router.config([
-                {
-                    path: '/dashboard',
-                    name: 'Dashboard',
-                    useAsDefault: true,
-                    loader: function () {
-                        return $ocLazyLoad.load('app/dashboard/dashboard.component.js')
-                            .then(function () {
-                                // return the user component name
-                                return 'dashboard';
-                            });
+                var vm = this;
+                vm.test = 'test';
+                vm.addUser = function(ev) {
+                    console.log(ev);
+                };
+                $router.config([
+                    {
+                        path: '/dashboard',
+                        name: 'Dashboard',
+                        useAsDefault: true,
+                        loader: function () {
+                            $ocLazyLoad.load('app/dashboard/charts/jobStatus/jobByStatus.component.js');
+                            $ocLazyLoad.load('app/dashboard/charts/deviceType/deviceType.component.js');
+                            $ocLazyLoad.load('app/dashboard/charts/migrations/migrations.component.js');
+                            return $ocLazyLoad.load('app/dashboard/dashboard.component.js')
+                                .then(function () {
+                                    return 'dashboard';
+                                });
+                        }
+                    },
+                    {
+                        path: '/security',
+                        name: 'Security',
+                        loader: function () {
+                            return $ocLazyLoad.load('app/security/security.component.js')
+                                .then(function () {
+                                    return 'security';
+                                });
+                        }
+                    },
+                    {path: '/jobs', name: 'Jobs', component: 'jobs'},
+                    {path: '/devices', name: 'Devices', component: 'devices'},
+                    {
+                        path: '/user/...',
+                        name: 'User',
+                        loader: function () {
+                            // lazy load the user module
+                            return $ocLazyLoad.load('app/security/user.js')
+                                .then(function () {
+                                    // return the user component name
+                                    return 'user';
+                                });
+                        }
                     }
-                },
-                {
-                    path: '/security', 
-                    name: 'Security',
-                    loader: function () {
-                        return $ocLazyLoad.load('app/security/security.component.js')
-                            .then(function () {
-                                // return the user component name
-                                return 'security';
-                            });
-                    }
-                },
-                {path: '/jobs', name: 'Jobs', component: 'jobs'},
-                {path: '/devices', name: 'Devices', component: 'devices'},
-                {
-                    path: '/user/...',
-                    name: 'User',
-                    loader: function () {
-                        // lazy load the user module
-                        return $ocLazyLoad.load('app/security/user.js')
-                            .then(function () {
-                                // return the user component name
-                                return 'user';
-                            });
-                    }
-                }
-            ]);
+                ]);
         }]
     });
     app.component('jobs', {

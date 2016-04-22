@@ -50,9 +50,10 @@ md-sidenav.md-locked-open {
 }
 
 #content  {
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
   padding-top: 5px;
+  background-color: #ECECEC;
 }
 
 #content .md-button.share {
@@ -141,4 +142,24 @@ span.name {
 
 md-content.md-default-theme {
   background-color: #eee;
+}
+
+.storfirst-sidenav a.active {
+  background: gainsboro;
+}
+
+.content {
+  background-color: #ECECEC;
+}
+
+.storfirst-sidenav .mdc-text-light-blue {
+  color: #1C94C4;
+}
+
+#dashboard-content span.md-title {
+  color: #7A7A7A;
+}
+
+md-list md-list-item.selected {
+    background-color: #ECECEC;
 }
