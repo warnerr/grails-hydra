@@ -9,4 +9,5 @@ build/
 .project
 .settings
 /.asscache
+/npm-debug.log
 .classpath
