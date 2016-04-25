@@ -136,7 +136,7 @@ span.name {
   padding-left:5px;
 }
 
-.ng-isolate-scope {
+body.ng-scope {
   /*height: 100%;*/
 }
 

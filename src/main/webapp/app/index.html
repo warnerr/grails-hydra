@@ -19,8 +19,8 @@
           rel="stylesheet">
 </head>
 
-<body ng-app="app" layout="column">
-<app>
+<body ng-app="app" >
+<app layout="column" flex layout-fill>
     <md-toolbar layout="row">
         <md-button
                 class="menu"
@@ -34,9 +34,9 @@
         </div>
     </md-toolbar>
 
-    <div layout="vertical" layout-fill class="" >
+    <div layout="row" flex>
         <!-- side nav goes here -->
-        <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2 storfirst-sidenav" >
+        <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2 storfirst-sidenav md-sidenav-left" flex>
             <md-content flex role="navigation">
                 <md-list flex>
                     <md-list-item layout="row" layout-align="start center" ng-click="vm.addUser()" href="#dashboard">
