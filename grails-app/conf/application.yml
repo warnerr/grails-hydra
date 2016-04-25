@@ -133,3 +133,7 @@ grails:
 endpoints:
     jmx:
         unique-names: true
+
+hydra:
+    brokerList: 'rabbit1:5672'
+    mongoList:  'mongoServer1:27017'
