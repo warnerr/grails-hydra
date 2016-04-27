@@ -27,7 +27,7 @@
         $ctrl.$routerOnActivate = function(next, previous) {
             // Load up the heroes for this view
             return userService.getUsers().then(function(users) {
-                $ctrl.users = users;
+                $ctrl.users = users.data;
                 selectedId = next.params.id;
             });
         };
@@ -56,8 +56,10 @@
 
     }
 
-    function UserService($q) {
-        var usersPromise = $q.when([
+    function UserService($http) {
+        var usersPromise = $http.get('user/index');
+
+        /*var usersPromise = $q.when([
             {
                 "id": "56f2b8a0cd7338182f63ca68",
                 "username": "seven10",
@@ -82,7 +84,7 @@
                 "last_login_time": "Apr 6, 2016 12:43:01 PM",
                 "role": "SECURITY_ADMINISTRATOR"
             }
-        ]);
+        ]);*/
 
         this.getUsers = function() {
             return usersPromise;
