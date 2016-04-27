@@ -1,58 +1,60 @@
-<md-toolbar layout="row">
-    <md-button
-            class="menu"
-            ng-click="null" aria-label="Show User List">
+<div layout="column" flex layout-fill>
+    <md-toolbar layout="row" layout-align="space-around center" >
+        <span hide-gt-sm>
+            <md-button
+                    class="menu"
+                    ng-click="vm.toggleMenu()" aria-label="Show User List" layout-align="end end">
 
-        <md-icon md-svg-icon="menu"></md-icon>
+             <i class="zmdi zmdi-menu zmdi-hc-2x"></i>
 
-    </md-button>
-    <div class="col-sm-4" layout-align="center center">
-        <img src="assets/img/horizontal-logo-1.gif" class="img-responsive" alt="Responsive image">
-    </div>
-</md-toolbar>
+            </md-button>
+        </span>
+        <span flex></span>
+        <div layout="row" layout-align="center center" layout-margin>
+            <i class="zmdi zmdi-swap zmdi-hc-3x"></i>
+            <div layout="column" layout-align="end end">Storfirst Migration</div>
+        </div>
+        <span flex></span>
+    </md-toolbar>
 
-<div layout="vertical" layout-fill class="">
-    <!-- side nav goes here -->
-    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2 storfirst-sidenav" layout-fill>
-        <md-content flex role="navigation">
-            <md-list flex>
-                <md-list-item ng-repeat="menuItem in $ctrl.sideMenu" href="{{menuItem.url}}">
-                    <div layout-margin>
-                        <md-icon md-font-set="zmdi-view-dashboard zmdi zmdi-hc-2x mdc-text-light-blue"></md-icon>
-                    </div>
-                    <div layout-fill>{{menuItem.label}}
-                    </div>
-                </md-list-item>
-               <!-- <md-list-item layout="row" layout-align="start center" ng-click="null" href="./dashboard">
-                    <div layout-margin>
-                        <md-icon md-font-set="zmdi-view-dashboard zmdi zmdi-hc-2x mdc-text-light-blue"></md-icon>
-                    </div>
-                    <div layout-fill>Dashboard
-                    </div>
-                </md-list-item>
-                <md-list-item layout="row" layout-align="start center" ng-click="null" href="./jobs">
-                    <div layout-margin>
-                        <md-icon md-font-set="zmdi zmdi-case zmdi-hc-2x mdc-text-light-blue" layout-margin></md-icon>
-                    </div>
-                    <div layout-fill>Jobs</div>
-                </md-list-item>
-                <md-list-item layout="row" layout-align="start center" ng-click="null" href="./devices">
-                    <div layout-margin>
-                        <md-icon md-font-set="zmdi zmdi-devices zmdi-hc-2x mdc-text-light-blue" layout-margin></md-icon>
-                    </div>
-                    <div layout-fill>Devices</div>
-                </md-list-item>
-                <md-list-item layout="row" layout-align="start center" ng-click="null" href="./security">
-                    <div layout-margin>
-                        <md-icon md-font-set="zmdi zmdi-settings zmdi-hc-2x mdc-text-light-blue" layout-margin></md-icon>
-                    </div>
-                    <div layout-fill>Settings</div>
-                </md-list-item>-->
-
+    <div layout="row" flex>
+        <!-- side nav goes here -->
+        <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2 storfirst-sidenav md-sidenav-left" ng-click="vm.toggleMenu()" flex>
+            <md-content flex role="navigation">
+                <md-list flex>
+                    <md-list-item layout="row" layout-align="start center" ng-repeat="menuItem in vm.sideMenu" ng-click="vm.selectMenu(menuItem)" href="{{menuItem.url}}" ng-class="{'selected' : menuItem.selected}">
+                        <div layout-margin>
+                            <md-icon md-font-set="{{menuItem.icon}} zmdi zmdi-hc-2x mdc-text-light-blue"></md-icon>
+                        </div>
+                        <div layout-fill>{{menuItem.label}}</div>
+                    </md-list-item>
+                   <!-- <md-list-item layout="row" layout-align="start center" ng-click="null" href=".#jobs">
+                        <div layout-margin>
+                            <md-icon md-font-set="zmdi zmdi-case zmdi-hc-2x mdc-text-light-blue" layout-margin></md-icon>
+                        </div>
+                        <div layout-fill>Jobs</div>
+                    </md-list-item>
+                    <md-list-item layout="row" layout-align="start center" ng-click="null" href="#devices">
+                        <div layout-margin>
+                            <md-icon md-font-set="zmdi zmdi-devices zmdi-hc-2x mdc-text-light-blue" layout-margin></md-icon>
+                        </div>
+                        <div layout-fill>Devices</div>
+                    </md-list-item>
+                    <md-list-item layout="row" layout-align="start center" ng-click="null" href="#security">
+                        <div layout-margin>
+                            <md-icon md-font-set="zmdi zmdi-settings zmdi-hc-2x mdc-text-light-blue" layout-margin></md-icon>
+                        </div>
+                        <div layout-fill>Settings</div>
+                    </md-list-item>
+-->
+            </md-content>
+            <div flex></div>
+            <div layout="row" layout-align="start" >
+            </div>
+        </md-sidenav>
+        <md-content flex class="md-padding page-content">
+            <!-- content goes here -->
+            <ng-outlet></ng-outlet>
         </md-content>
-    </md-sidenav>
-    <md-content flex id="content" layout="column">
-        <!-- content goes here -->
-        <ng-outlet></ng-outlet>
-    </md-content>
+    </div>
 </div>
