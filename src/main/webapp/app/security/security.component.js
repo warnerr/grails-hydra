@@ -15,12 +15,36 @@
         $ctrl.selected = [];
         $ctrl.isAddingUser = false;
 
+        $ctrl.limitOptions = [5, 10, 15];
         $ctrl.query = {
-            order: 'name',
+            order: 'userName',
             limit: 5,
             page: 1
         };
 
+        $ctrl.options = {
+            rowSelection: false,
+            multiSelect: false,
+            autoSelect: false,
+            decapitate: false,
+            largeEditDialog: false,
+            boundaryLinks: false,
+            limitSelect: true,
+            pageSelect: true
+        };
+
+        $ctrl.logItem = function (item) {
+            console.log(item.name, 'was selected');
+        };
+
+        $ctrl.logOrder = function (order) {
+            console.log('order: ', order);
+        };
+
+        $ctrl.logPagination = function (page, limit) {
+            console.log('page: ', page);
+            console.log('limit: ', limit);
+        };
        /* function success(users) {
             $ctr.users = users;
         }*/
@@ -28,6 +52,7 @@
             // Load up the heroes for this view
             return userService.getUsers().then(function(users) {
                 $ctrl.users = users.data;
+                $ctrl.totalUsers = users.data.length;
                 selectedId = next.params.id;
             });
         };
@@ -48,7 +73,7 @@
                 }
             }).then(function(answer) {
                 var status = userService.addUser(answer);
-                console.log("user == " + answer.username + "   status == " + status);
+                console.log("user == " + answer.userName + "   status == " + status);
             }, function() {
                 console.log('You cancelled the dialog.');
             });
@@ -99,6 +124,7 @@
         };
 
         this.addUser = function (user) {
+            console.log(user);
             return true;
         }
     }

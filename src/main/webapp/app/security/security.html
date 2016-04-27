@@ -14,11 +14,11 @@
                         </div>
                     </md-toolbar>
                     <md-table-container>
-                        <table md-table md-row-select multiple ng-model="$ctrl.selected" md-progress="promise">
-                            <thead md-head data-md-order="query.order" layout-margin>
+                        <table md-table ng-model="$ctrl.selected" md-progress="promise">
+                            <thead md-head md-order="$ctrl.query.order" layout-margin>
                             <tr md-row>
                                 <!-- when the user clicks this cell, the myOrder variable will get the value 'nameToLower' -->
-                                <th md-column data-md-order-by="nameToLower">Username</th>
+                                <th md-column md-order-by="userName">Username</th>
                                 <!-- the variable myOrder will not be changed when this cell is clicked -->
                                 <th md-column>Role</th>
                                 <th md-column>Date Added</th>
@@ -27,16 +27,21 @@
                             </thead>
                             <tbody md-body>
                             <!-- we can let ng-repeat sort the columns for us -->
-                            <tr md-row md-select="user" md-select-id="name" md-auto-select
-                                ng-repeat="user in $ctrl.users">
+                            <tr md-row md-select="user" md-select-id="name" md-auto-select ng-repeat="user in $ctrl.users | orderBy: $ctrl.query.order | limitTo: $ctrl.query.limit : ($ctrl.query.page -1) * $ctrl.query.limit">
                                 <td md-cell>{{user.userName}}</td>
                                 <td md-cell>{{user.role}}</td>
-                                <td md-cell>{{user.timeCreated}}</td>
-                                <td md-cell>{{user.lastLogin}}</td>
+                                <td md-cell>{{user.timeCreated | date: 'medium'}}</td>
+                                <td md-cell>{{user.lastLogin | date:'medium'}}</td>
                             </tr>
                             </tbody>
                         </table>
                     </md-table-container>
+                    <md-table-pagination md-limit="$ctrl.query.limit" md-limit-options="$ctrl.limitOptions"
+                                         md-page="$ctrl.query.page" md-total="{{$ctrl.totalUsers}}"
+                                         boundary-links="$ctrl.options.boundaryLinks"
+                                         md-page-select="$ctrl.options.pageSelect" md-on-paginate="logPagination">
+
+                    </md-table-pagination>
                 </md-card>
             </div>
         </div>
