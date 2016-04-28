@@ -1,5 +1,3 @@
-import com.seven10.hydra.User
-
 model {
 	Iterable<User> userList
 }

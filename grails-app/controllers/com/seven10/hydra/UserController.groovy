@@ -1,7 +1,9 @@
 package com.seven10.hydra
 
 import grails.converters.JSON
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured('ROLE_ADMIN')
 class UserController {
 
     def userService
