@@ -7,7 +7,8 @@ import org.bson.types.ObjectId
 class UserService {
 
     def getUsers() {
-        User.findAllByRoleNotEqual(UserRole.APIKEY)
+
+        User.findAllByRoleNotEqualAndRoleIsNotNull(UserRole.APIKEY)
     }
 
     def getUser(String userId) {
