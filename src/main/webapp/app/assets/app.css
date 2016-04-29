@@ -147,11 +147,19 @@ md-content.md-default-theme {
 }
 
 .page-content {
-    background-color: #ECECEC;
+    background-color: #809fff;
 }
 
 .mdc-text-light-blue {
     color: #2196F3;
+}
+
+.mdst-text-light-blue {
+    color: #809fff;
+}
+
+.large-text {
+    font-size: 48px;
 }
 
 .seven-ten-black {
@@ -168,4 +176,9 @@ md-content.md-default-theme {
 
 md-list md-list-item.selected {
     background-color: #ECECEC;
+}
+
+.vertical-text {
+    transform: rotate(-90deg);
+    transform-origin: left top 0;
 }

@@ -6,7 +6,7 @@
                 .defaultIconSet("./assets/svg/avatars.svg", 128);
 
             $mdThemingProvider.theme('default')
-                .primaryPalette('blue')
+                .primaryPalette('indigo')
                 .accentPalette('red');
             $mdThemingProvider.theme('input', 'default')
                 .primaryPalette('grey');
