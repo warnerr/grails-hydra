@@ -1,9 +1,9 @@
 <md-list flex class="md-dense">
-    <md-list-item class="md-2-line" ng-repeat="item in $ctrl.failedJobs" ng-click="null">
-        <md-icon md-font-set="zmdi zmdi-assignment-alert zmdi-hc-2x" layout-margin></md-icon>
-        <div class="md-list-item-text" layout="column" flex>
-            <div>{{ item.jobName }}</div>
-            <div>{{ item.error }}</div>
+    <md-list-item class="md-1-line" ng-repeat="item in $ctrl.failedJobs" ng-click="null">
+        <md-icon md-font-set="zmdi zmdi-assignment-alert zmdi-hc-2x"></md-icon>
+        <div class="md-list-item-text" layout="row" flex>
+            <span class="padding-right-20">{{ item.jobName }}</span>
+            <span>{{ item.error }}</span>
         </div>
         <md-divider ng-if="!$last"></md-divider>
     </md-list-item>
