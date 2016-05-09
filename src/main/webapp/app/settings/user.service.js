@@ -3,7 +3,7 @@
  */
 (function() {
     angular
-        .module('app.security')
+        .module('app.settings')
         .service('userService', UserService);
 
 
@@ -51,6 +51,11 @@
 
         this.addUser = function (user) {
             console.log(user);
+            $http.post('user/create', user).then(function (response) {
+                return response.data;
+            }, function (response) {
+                console.log("failed response status == " + response.status + "   data " + response.data);
+            });
             return true;
         }
     }

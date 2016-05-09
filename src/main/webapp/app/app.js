@@ -36,29 +36,18 @@
                         }
                     },
                     {
-                        path: '/security',
-                        name: 'Security',
+                        path: '/settings',
+                        name: 'Settings',
                         loader: function () {
-                            return $ocLazyLoad.load('app/security/security.component.js')
+                            return $ocLazyLoad.load('app/settings/settings.component.js')
                                 .then(function () {
-                                    return 'security';
-                                });
+                                        return 'settings';
+                                    }
+                                );
                         }
                     },
                     {path: '/jobs', name: 'Jobs', component: 'jobs'},
-                    {path: '/devices', name: 'Devices', component: 'devices'},
-                    {
-                        path: '/user/...',
-                        name: 'User',
-                        loader: function () {
-                            // lazy load the user module
-                            return $ocLazyLoad.load('app/security/user.js')
-                                .then(function () {
-                                    // return the user component name
-                                    return 'user';
-                                });
-                        }
-                    }
+                    {path: '/devices', name: 'Devices', component: 'devices'}
                 ]);
         }]
     });

@@ -1,6 +1,4 @@
-<md-tabs md-dynamic-height md-border-bottom>
-    <md-tab label="Users">
-        <div flex layout="column">
+<div flex layout="column">
             <h2 class="pageTitle"> User and Security Management </h2>
             <div flex layout="row" layout-margin>
                 <md-card flex layout="column" layout-align="start">
@@ -17,16 +15,13 @@
                         <table md-table ng-model="$ctrl.selected" md-progress="promise">
                             <thead md-head md-order="$ctrl.query.order" layout-margin>
                             <tr md-row>
-                                <!-- when the user clicks this cell, the myOrder variable will get the value 'nameToLower' -->
                                 <th md-column md-order-by="userName">Username</th>
-                                <!-- the variable myOrder will not be changed when this cell is clicked -->
                                 <th md-column>Role</th>
                                 <th md-column>Date Added</th>
                                 <th md-column>Last Logged In</th>
                             </tr>
                             </thead>
                             <tbody md-body>
-                            <!-- we can let ng-repeat sort the columns for us -->
                             <tr md-row md-select="user" md-select-id="name" md-auto-select ng-repeat="user in $ctrl.users | orderBy: $ctrl.query.order | limitTo: $ctrl.query.limit : ($ctrl.query.page -1) * $ctrl.query.limit">
                                 <td md-cell>{{user.userName}}</td>
                                 <td md-cell>{{user.role}}</td>
@@ -45,7 +40,3 @@
                 </md-card>
             </div>
         </div>
-    </md-tab>
-    <md-tab label="Logs">
-    </md-tab>
-</md-tabs>
