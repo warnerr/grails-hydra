@@ -16,8 +16,8 @@ class User {
 
     static mapping = {
         userName attr: "username"
-        timeCreated attr: "time_created"
-        lastLogin attr: "last_login_time"
+        timeCreated attr: "time_created", defaultValue: new Date()
+        lastLogin attr: "last_login_time", defaultValue: new Date()
 
     }
 }
