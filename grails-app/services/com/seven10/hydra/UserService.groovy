@@ -1,6 +1,7 @@
 package com.seven10.hydra
 
 import grails.transaction.Transactional
+import grails.validation.ValidationException
 import org.bson.types.ObjectId
 
 @Transactional
@@ -25,6 +26,7 @@ class UserService {
             newUser.errors.allErrors.each {
                 println it
             }
+            throw new ValidationException("Error saving User", newUser.errors)
         }
 
         newUser

@@ -8,7 +8,7 @@
 
 
     function UserService($http) {
-        var usersPromise = $http.get('user/index');
+        var usersPromise = $http.get('user/index', { headers: { 'Cache-Control' : 'no-cache' } });
 
         /*var usersPromise = $q.when([
          {
@@ -38,7 +38,7 @@
          ]);*/
 
         this.getUsers = function() {
-            return usersPromise;
+            return $http.get('user/index');
         };
 
         this.getUser = function(id) {
@@ -51,12 +51,7 @@
 
         this.addUser = function (user) {
             console.log(user);
-            $http.post('user/create', user).then(function (response) {
-                return response.data;
-            }, function (response) {
-                console.log("failed response status == " + response.status + "   data " + response.data);
-            });
-            return true;
+            return $http.post('user/create', user);
         }
     }
 })();

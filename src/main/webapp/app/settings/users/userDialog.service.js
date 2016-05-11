@@ -4,7 +4,7 @@
         .service('userDialog', AddUserController);
 
     function AddUserController ($mdDialog, userService) {
-        this.addUser = function (users, ev) {
+        this.addUser = function ($scope, ev) {
             $mdDialog.show({
                 controller: UserDialogController,
                 templateUrl: 'app/settings/users/addUserDialog.html',
@@ -17,8 +17,10 @@
                     }, {id: 'USER', label: 'User'}]
                 }
             }).then(function (answer) {
-                var user = userService.addUser(answer);
-                users.push(user);
+                 return userService.addUser(answer).then(function () {
+                     $scope.loadUsers();
+                     //$scope.apply();
+                 });
             }, function () {
                 console.log('You cancelled the dialog.');
             });

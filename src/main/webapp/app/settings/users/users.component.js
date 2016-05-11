@@ -46,20 +46,24 @@
          $ctr.users = users;
          }*/
         $ctrl.$onInit = function(next) {
-            // Load up the heroes for this view
-            return userService.getUsers().then(function(users) {
-                $ctrl.users = users.data;
-                $ctrl.totalUsers = users.data.length;
-            });
+            return $ctrl.loadUsers();
         };
 
         $ctrl.isSelected = function(user) {
             return (user.id == selectedId);
         };
 
-        $ctrl.addUser = function(ev) {
+        $ctrl.addUser = function (ev) {
             console.log('adding user');
-            userDialog.addUser($ctrl.users);
+            var userDialogResponse = userDialog.addUser($ctrl);
+
+        };
+        
+        $ctrl.loadUsers = function () {
+            return userService.getUsers().then(function(users) {
+                $ctrl.users = users.data;
+                $ctrl.totalUsers = users.data.length;
+            });
         }
 
     }

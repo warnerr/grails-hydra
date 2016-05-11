@@ -14,11 +14,14 @@
         ])
         .component('dashboard', {
             templateUrl: 'app/dashboard/dashboard.html',
-            controller: DashboardCharts
+            controller: ['$rootRouter' , DashboardCharts]
         });
 
-    function DashboardCharts($ocLazyLoad) {
-
+    function DashboardCharts($router, $ocLazyLoad) {
+        this.$routerOnActivate = function (next) {
+            // Load up the status list for this view
+            console.log("in dashboard");
+        };
     }
 
 })();

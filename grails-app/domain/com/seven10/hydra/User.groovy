@@ -7,8 +7,8 @@ class User {
     ObjectId id
     String userName
     String password
-    Date timeCreated
-    Date lastLogin
+    Date timeCreated = new Date()
+    Date lastLogin = new Date()
     String role
 
     static constraints = {

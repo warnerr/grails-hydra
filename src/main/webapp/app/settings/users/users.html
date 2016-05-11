@@ -25,8 +25,8 @@
                             <tr md-row md-select="user" md-select-id="name" md-auto-select ng-repeat="user in $ctrl.users | orderBy: $ctrl.query.order | limitTo: $ctrl.query.limit : ($ctrl.query.page -1) * $ctrl.query.limit">
                                 <td md-cell>{{user.userName}}</td>
                                 <td md-cell>{{user.role}}</td>
-                                <td md-cell>{{user.timeCreated | date: 'medium'}}</td>
-                                <td md-cell>{{user.lastLogin | date:'medium'}}</td>
+                                <td md-cell>{{user.timeCreated | date : 'medium'}}</td>
+                                <td md-cell>{{user.lastLogin | date :'medium'}}</td>
                             </tr>
                             </tbody>
                         </table>
