@@ -64,7 +64,7 @@ grails:
         port: 27017
         username: 'seven10'
         password: 'seven10'
-        databaseName: 'testdb'
+        databaseName: 'test'
     resources:
         pattern: '/**'
 info:
