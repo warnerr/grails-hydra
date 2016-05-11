@@ -1,4 +1,4 @@
-package com.seven10.hydra
+package com.seven10.hydra.user
 
 import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured

@@ -1,4 +1,4 @@
-package com.seven10.hydra
+package com.seven10.hydra.user
 
 import grails.gorm.DetachedCriteria
 import groovy.transform.ToString

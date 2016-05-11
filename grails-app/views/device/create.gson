@@ -1,0 +1,5 @@
+model {
+	Device device
+}
+
+json tmpl.device(device)

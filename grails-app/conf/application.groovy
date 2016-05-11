@@ -7,9 +7,9 @@ grails.plugin.springsecurity.logout.postOnly = false
 
 
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.seven10.hydra.User'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.seven10.hydra.UserRole'
-grails.plugin.springsecurity.authority.className = 'com.seven10.hydra.Role'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.seven10.hydra.user.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.seven10.hydra.user.UserRole'
+grails.plugin.springsecurity.authority.className = 'com.seven10.hydra.user.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],

@@ -1,0 +1,6 @@
+model {
+	Iterable<Device> deviceList
+}
+
+json tmpl.device(deviceList ?: [])
+

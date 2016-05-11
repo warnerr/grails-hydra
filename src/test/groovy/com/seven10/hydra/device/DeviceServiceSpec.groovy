@@ -1,14 +1,13 @@
-package com.seven10.hydra
+package com.seven10.hydra.device
 
-import com.seven10.hydra.user.UserService
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 
 /**
  * See the API for {@link grails.test.mixin.services.ServiceUnitTestMixin} for usage instructions
  */
-@TestFor(UserService)
-class UserServiceSpec extends Specification {
+@TestFor(DeviceService)
+class DeviceServiceSpec extends Specification {
 
     def setup() {
     }

@@ -1,4 +1,4 @@
-package com.seven10.hydra
+package com.seven10.hydra.device
 
 /**
  * Created by rwarner on 5/11/16.

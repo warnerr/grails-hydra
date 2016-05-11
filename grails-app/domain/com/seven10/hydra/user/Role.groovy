@@ -1,4 +1,4 @@
-package com.seven10.hydra
+package com.seven10.hydra.user
 
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString

@@ -1,6 +1,6 @@
-import com.seven10.hydra.Role
-import com.seven10.hydra.User
-import com.seven10.hydra.UserRole
+import com.seven10.hydra.user.Role
+import com.seven10.hydra.user.User
+import com.seven10.hydra.user.UserRole
 
 class BootStrap {
 

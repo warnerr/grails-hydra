@@ -1,0 +1,7 @@
+model {
+	Device device
+}
+
+json g.render(device, [excludes: ['id']]) {
+    id device.id.toString()
+}
