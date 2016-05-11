@@ -19,7 +19,6 @@
             }).then(function (answer) {
                  return userService.addUser(answer).then(function () {
                      $scope.loadUsers();
-                     //$scope.apply();
                  });
             }, function () {
                 console.log('You cancelled the dialog.');
