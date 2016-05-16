@@ -17,7 +17,7 @@
 
         $ctrl.$onInit = function () {
             // Load up the status list for this view
-            return failedJobsService.getFailedJobs().then(function (failedJobs) {
+            failedJobsService.getFailedJobs().then(function (failedJobs) {
                 $ctrl.failedJobs = failedJobs;
             });
         };

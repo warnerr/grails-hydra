@@ -1,0 +1,46 @@
+<md-dialog aria-label="Mango (Fruit)">
+    <md-content class="md-padding md-default-theme">
+        <form name="userForm" layout-margin>
+            <div layout layout-sm="column">
+                <md-input-container flex class="md-block">
+                    <label>Username</label>
+                    <input required ng-model="userName" class="md-block" md-maxlength="25" minlength="6">
+                    <div ng-messages="userForm.userName.$error">
+                        <div ng-message="required" class="my-message">Username is required.</div>
+                        <div ng-message="md-maxlength" class="my-message">Username cannot be more than 25 characters.</div>
+                        <div ng-message="minlength" class="my-message">Username cannot be less than 6 characters.</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout layout-sm="column">
+                <md-input-container flex>
+                    <label>Password</label>
+                    <input type="password" ng-model="password" class="md-block" md-maxlength="20" required
+                           minlength="8">
+                    <div ng-messages="userForm.password.$error" role="alert">
+                        <div ng-message="required" class="my-message">Password is required.</div>
+                        <div ng-message="max" class="my-message">Password cannot be more than 20 characters.</div>
+                        <div ng-message="minlength" class="my-message">Password cannot be less than 8 characters.</div>
+                    </div>
+                </md-input-container>
+
+            </div>
+            <div layout layout-sm="column">
+                <md-input-container flex>
+                    <label>Role</label>
+                    <md-select ng-model="role" required>
+                        <md-option ng-repeat="role in roles" ng-value="role.id">
+                            {{role.label}}
+                        </md-option>
+                    </md-select>
+                    <div ng-messages="userForm.role.$error">
+                        <div ng-message="required" class="my-message">Role is required.</div>
+                </md-input-container>
+            </div>
+        </form>
+    </md-content>
+    <div class="md-dialog-actions" layout="row"><span flex></span>
+        <md-button ng-click="cancel()"> Cancel</md-button>
+        <md-button ng-click="answer(user)" class="md-primary" ng-disabled="userForm.$invalid"> Save</md-button>
+    </div>
+</md-dialog>

@@ -1,14 +1,14 @@
 package com.seven10.hydra
 
-import com.seven10.hydra.user.UserController
+import com.seven10.hydra.device.Device
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 
 /**
- * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
+ * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
-@TestFor(UserController)
-class UserControllerSpec extends Specification {
+@TestFor(Device)
+class DeviceSpec extends Specification {
 
     def setup() {
     }

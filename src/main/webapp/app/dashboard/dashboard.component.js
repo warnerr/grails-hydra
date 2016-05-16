@@ -3,7 +3,7 @@
  */
 (function() {
     angular
-        .module('app.dashboard', ['ngMaterial', 'nvd3', 'oc.lazyLoad', [
+        .module('app.dashboard', ['app', 'ngMaterial', 'nvd3', 'oc.lazyLoad', [
             'app/dashboard/charts/jobStatus/jobByStatus.component.js',
             'app/dashboard/charts/deviceType/deviceType.component.js',
             'app/dashboard/charts/migrations/migrations.component.js',
@@ -14,11 +14,14 @@
         ])
         .component('dashboard', {
             templateUrl: 'app/dashboard/dashboard.html',
-            controller: DashboardCharts
+            controller: ['$rootRouter' , DashboardCharts]
         });
 
-    function DashboardCharts($ocLazyLoad) {
-
+    function DashboardCharts($router, $ocLazyLoad) {
+        this.$routerOnActivate = function (next, other) {
+          //when user clicks on menu link this is triggered
+          console.log(next + "   " + other);
+        };
     }
 
 })();

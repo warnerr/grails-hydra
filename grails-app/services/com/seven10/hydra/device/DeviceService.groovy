@@ -1,6 +1,7 @@
 package com.seven10.hydra.device
 
 import grails.transaction.Transactional
+import grails.validation.ValidationException
 import org.bson.types.ObjectId
 
 @Transactional

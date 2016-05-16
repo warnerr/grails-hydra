@@ -147,12 +147,33 @@ md-content.md-default-theme {
 }
 
 .page-content {
-    background-color: #ECECEC;
+    background-color: #87ABCB;
 }
 
 .mdc-text-light-blue {
-    color: #2196F3;
+    color: #00B0F0;
 }
+
+.mdst-text-light-blue {
+    color: #00B0F0;
+}
+
+.top-toolbar-heading {
+    font-family: 'Georgia', sans-serif;
+    font-weight: 400;
+}
+.padding-right-20 {
+    padding-right: 20px;
+}
+
+.padding-left-20 {
+    padding-left: 20px;
+}
+
+.large-text {
+    font-size: 86px;
+}
+
 
 .seven-ten-black {
     color: black;
@@ -163,9 +184,19 @@ md-content.md-default-theme {
 }
 
 .dashboard-content span.md-title {
-    color: #7A7A7A;
+    color: #00B0F0;
+    font-weight: bold;
 }
 
 md-list md-list-item.selected {
     background-color: #ECECEC;
+}
+
+md-input-container.search-input {
+    margin: 0;
+}
+.vertical-text {
+    position: absolute;
+    line-height: 0px;  /* centre the text on the base line */
+    transform: translateX(-70%) rotate(-90deg);
 }
