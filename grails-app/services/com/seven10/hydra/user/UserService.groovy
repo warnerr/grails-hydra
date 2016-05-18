@@ -1,6 +1,7 @@
 package com.seven10.hydra.user
 
 import grails.transaction.Transactional
+import grails.validation.ValidationException
 import org.bson.types.ObjectId
 
 @Transactional
@@ -21,9 +22,7 @@ class UserService {
             newUser.save()
         }
         else {
-            newUser.errors.allErrors.each {
-                println it
-            }
+            throw new ValidationException("User is not valid", newUser.errors)
         }
 
         newUser
@@ -43,9 +42,7 @@ class UserService {
             if (user.validate()) {
                 user.save()
             } else {
-                user.errors.allErrors.each {
-                    println it
-                }
+                throw new ValidationException("User is not valid", user.errors)
             }
         }
         user

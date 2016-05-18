@@ -14,6 +14,9 @@ class Device {
     String managementPassword
     String status
     String domain
+    List<Export> exports
+
+    static embedded = ['exports']
 
     static constraints = {
     }

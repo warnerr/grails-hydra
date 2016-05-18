@@ -4,7 +4,6 @@ import org.bson.types.ObjectId
 
 class Export {
 
-    ObjectId id
     String authUser
     String authPassword
     String authGroup
@@ -19,6 +18,5 @@ class Export {
         authUser attr: 'auth_user'
         authPassword attr: 'auth_pass'
         authGroup attr: 'auth_group'
-        parentId attr: 'parent_id'
     }
 }

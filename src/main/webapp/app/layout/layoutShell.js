@@ -14,31 +14,6 @@
 
             var vm = this;
             vm.sideMenu;
-            /*[
-                {
-                    label: 'Dashboard',
-                    url: '#dashboard',
-                    selected: true,
-                    icon: 'zmdi-view-dashboard'
-                },
-                {
-                    label: 'Jobs',
-                    url: '#jobs',
-                    selected: false,
-                    icon: 'zmdi-case'
-                },
-                {
-                    label: 'Devices',
-                    url: '#devices',
-                    selected: false,
-                    icon: 'zmdi-devices'
-                },
-                {
-                    label: 'Settings',
-                    url: '#settings',
-                    selected: false,
-                    icon: 'zmdi-settings'
-                }];*/
             vm.selectMenu = function (menuItem) {
                 console.log(menuItem);
                 angular.forEach(vm.sideMenu, function (item) {

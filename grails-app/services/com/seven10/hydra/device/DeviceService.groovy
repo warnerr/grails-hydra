@@ -22,9 +22,7 @@ class DeviceService {
             newDevice.save()
         }
         else {
-            newDevice.errors.allErrors.each {
-                println it
-            }
+            throw new ValidationException("Device is not valid", newDevice.errors)
         }
 
         newDevice

@@ -1,21 +1,22 @@
 (function() {
     angular
-        .module('app.devices', ['app', 'ngMaterial', ['app/devices/device.service.js']])
-        .component('devices', {
+        .module('app.devices')
+        .component('deviceList', {
             templateUrl: 'app/devices/devices.html',
-            controller: DevicesComponent
+            controller: DeviceListComponent
         });
 
-    function DevicesComponent(deviceService) {
+    function DeviceListComponent(deviceService) {
         var $ctrl = this;
         $ctrl.optionsClick = function (option) {
             console.log(" option has been clicked  " + option);
         }
+
         $ctrl.$onInit = function() {
             return deviceService.getDevices().then(function(devices) {
                 $ctrl.devices = devices.data;
                 $ctrl.totalDevices = devices.data.length;
             });
-        };
+        }
     }
 })();

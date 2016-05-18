@@ -1,98 +1,70 @@
-<div layout-gt-md="row" class="dashboard-content">
+<div layout="row" class="dashboard-content">
     <div layout="column" flex>
         <md-card>
-            <md-card-content layout="row" layout-align="space-between center" >
+            <md-card-content layout="row" layout-align="space-between center">
                 <span class="md-title padding-right-20">{{'Storage' | uppercase}}</span>
                 <div layout="row" layout-align="center center">
                     <div md-theme="input" class="search-input padding-right-20">
                         <i class="zmdi zmdi-search"></i>
                         <input ng-model="search" placeholder="search" flex size="30px">
                     </div>
+                    <md-button aria-label="add" class="device-options-button md-primary md-hue-1">
+                        <i class="zmdi zmdi-plus-circle zmdi-hc-2x"></i>
+                    </md-button>
                 </div>
             </md-card-content>
         </md-card>
     </div>
 </div>
 
-<div layout-gt-md="row" class="device-content" layout-wrap>
-    <div layout="column" flex="33">
-        <md-card>
-            <md-card-header>
-                <md-card-header-text>
-                    <span class="md-title">{{'Jobs by Status' | uppercase}}</span>
-                </md-card-header-text>
-            </md-card-header>
-            <md-divider></md-divider>
-            <md-card-content>
-                <div>Device 1</div>
-            </md-card-content>
-        </md-card>
-    </div>
-
-    <div layout="column" flex="33">
-        <md-card>
-            <md-card-header>
-                <md-card-header-text>
-                    <span class="md-title">{{'Jobs by Status' | uppercase}}</span>
-                </md-card-header-text>
-            </md-card-header>
-            <md-divider></md-divider>
-            <md-card-content>
-                <div>Device 2</div>
-            </md-card-content>
-        </md-card>
-    </div>
-
-    <div layout="column" flex="33">
-        <md-card>
-            <md-card-header>
-                <md-card-header-text>
-                    <span class="md-title">{{'Jobs by Status' | uppercase}}</span>
-                </md-card-header-text>
-            </md-card-header>
-            <md-divider></md-divider>
-            <md-card-content>
-                <div>Device 3</div>
-            </md-card-content>
-        </md-card>
-    </div>
-    <div layout="column" flex="33">
-        <md-card>
-            <md-card-header>
-                <md-card-header-text>
-                    <span class="md-title">{{'Jobs by Status' | uppercase}}</span>
-                </md-card-header-text>
-            </md-card-header>
-            <md-divider></md-divider>
-            <md-card-content>
-                <div>Device 4</div>
-            </md-card-content>
-        </md-card>
-    </div>
-    <div layout="column" flex="33">
-        <md-card>
-            <md-card-header>
-                <md-card-header-text>
-                    <span class="md-title">{{'Jobs by Status' | uppercase}}</span>
-                </md-card-header-text>
-            </md-card-header>
-            <md-divider></md-divider>
-            <md-card-content>
-                <div>Device 5</div>
-            </md-card-content>
-        </md-card>
-    </div>
-    <div layout="column" flex="33">
-        <md-card>
-            <md-card-header>
-                <md-card-header-text>
-                    <span class="md-title">{{'Jobs by Status' | uppercase}}</span>
-                </md-card-header-text>
-            </md-card-header>
-            <md-divider></md-divider>
-            <md-card-content>
-                <div>Device 6</div>
-            </md-card-content>
-        </md-card>
-    </div>
+<div layout="row" class="device-content" layout-wrap >
+    <md-card ng-repeat="device in $ctrl.devices">
+        <md-card-header>
+            <md-card-header-text layout="row" layout-align="space-between center">
+                <span class="md-title mdc-text-light-blue">{{device.name | uppercase}}</span>
+                <md-button aria-label="More" ng-click="$showOptions = !$showOptions" class="device-options-button">
+                    <i class="zmdi zmdi-edit zmdi-hc-2x"></i>
+                </md-button>
+            </md-card-header-text>
+        </md-card-header>
+        <md-divider></md-divider>
+        <md-card-content>
+            <div layout="row" layout-align="space-between" class="padding-bottom-10">
+                <div layout="column" class="padding-right-20">
+                    <div layout="row" class="padding-bottom-10">
+                        <div class="padding-right-20">Type:</div>
+                        <div>{{device.type}}</div>
+                    </div>
+                    <div layout="row" class="padding-bottom-10">
+                        <div class="padding-right-20">SubType:</div>
+                        <div>{{device.subType}}</div>
+                    </div>
+                    <div layout="row">
+                        <div class="padding-right-20">Address:</div>
+                        <div ng-repeat="address in device.address">{{address}}</div>
+                    </div>
+                </div>
+                <div layout="column">
+                    <div layout="row" layout-align="space-between" class="padding-bottom-10">
+                        <div class="padding-right-20">Status:</div>
+                        <div>{{device.status}}</div>
+                    </div>
+                    <div layout="row" layout-align="center">
+                        <i class="zmdi zmdi-swap zmdi-hc-3x mdc-text-light-blue"></i>
+                    </div>
+                </div>
+            </div>
+            <div layout="row">
+                <div layout="column" flex>
+                    <div>Exports</div>
+                <md-virtual-repeat-container id="vertical-container">
+                    <div md-virtual-repeat="item in device.exports"
+                         class="repeated-item" flex>
+                        {{item.path}}
+                    </div>
+                </md-virtual-repeat-container>
+                    <div>
+            </div>
+        </md-card-content>
+    </md-card>
 </div>

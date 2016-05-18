@@ -170,6 +170,14 @@ md-content.md-default-theme {
     padding-left: 20px;
 }
 
+.padding-bottom-10 {
+    padding-bottom: 20px;
+}
+
+.padding-top-10 {
+    padding-top: 20px;
+}
+
 .large-text {
     font-size: 86px;
 }
@@ -200,3 +208,30 @@ md-input-container.search-input {
     line-height: 0px;  /* centre the text on the base line */
     transform: translateX(-70%) rotate(-90deg);
 }
+
+button.device-options-button {
+    margin: 0;
+    line-height: 0;
+    min-height: 0;
+    min-width: 25px;
+}
+
+.device-content .zmdi-edit {
+    font-size: 1.5em;
+}
+
+#vertical-container {
+  height: 80px;
+  width: 100%;
+  max-width: 400px; }
+.repeated-item {
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+  height: 40px;
+  padding-top: 10px; }
+
+md-virtual-repeat-container {
+  border: solid 1px grey; }
+.md-virtual-repeat-container .md-virtual-repeat-offsetter div {
+  padding-left: 16px;
+  }
