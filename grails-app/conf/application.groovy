@@ -2,6 +2,8 @@ grails.gorm.default.mapping = {
     version false
 }
 
+grails.json.legacy.builder = false
+
 grails.plugin.springsecurity.logout.postOnly = false
 
 

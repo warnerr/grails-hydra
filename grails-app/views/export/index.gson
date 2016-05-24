@@ -1,0 +1,6 @@
+model {
+	Iterable<Export> exportList
+}
+
+json tmpl.export(exportList ?: [])
+

@@ -171,11 +171,11 @@ md-content.md-default-theme {
 }
 
 .padding-bottom-10 {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .padding-top-10 {
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .large-text {
@@ -209,7 +209,7 @@ md-input-container.search-input {
     transform: translateX(-70%) rotate(-90deg);
 }
 
-button.device-options-button {
+a.device-options-button, button.device-options-button {
     margin: 0;
     line-height: 0;
     min-height: 0;
@@ -231,7 +231,16 @@ button.device-options-button {
   padding-top: 10px; }
 
 md-virtual-repeat-container {
-  border: solid 1px grey; }
+  border: solid 1px grey;
+}
 .md-virtual-repeat-container .md-virtual-repeat-offsetter div {
   padding-left: 16px;
-  }
+}
+
+md-toast.md-error-toast-theme .md-toast-content {
+      background-color: red;
+}
+
+md-toast.md-success-toast-theme .md-toast-content {
+     background-color: green;
+}

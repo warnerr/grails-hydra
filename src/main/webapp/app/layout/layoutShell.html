@@ -24,11 +24,13 @@
         <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2 storfirst-sidenav md-sidenav-left" ng-click="vm.toggleMenu()" flex>
             <md-content flex role="navigation">
                 <md-list flex>
-                    <md-list-item layout="row" layout-align="start center" ng-repeat="menuItem in vm.sideMenu" ng-click="vm.selectMenu(menuItem)" href="{{menuItem.url}}" ng-class="{'selected' : menuItem.selected}">
-                        <div layout-margin>
-                            <md-icon md-font-set="{{menuItem.icon}} zmdi zmdi-hc-2x mdc-text-light-blue"></md-icon>
-                        </div>
-                        <div layout-fill>{{menuItem.label}}</div>
+                    <md-list-item layout="row" ng-repeat="menuItem in vm.sideMenu" ng-class="{'selected' : menuItem.selected}">
+                        <md-button ng-link="['{{menuItem.url}}']" ng-click="vm.selectMenu(menuItem)" layout="row" layout-align="start center" layout-margin flex>
+                            <div>
+                                <md-icon md-font-set="{{menuItem.icon}} zmdi zmdi-hc-2x mdc-text-light-blue"></md-icon>
+                            </div>
+                            <div>{{menuItem.label}}</div>
+                        </md-button>
                     </md-list-item>
             </md-content>
             <div flex></div>

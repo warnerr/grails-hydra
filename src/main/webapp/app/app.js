@@ -13,6 +13,9 @@
             $mdThemingProvider.theme('input', 'default')
                 .primaryPalette('grey');
 
+            $mdThemingProvider.theme("success-toast").primaryPalette('green');
+            $mdThemingProvider.theme("error-toast").primaryPalette('red');
+
         })
         .value('$routerRootComponent', 'app');
 

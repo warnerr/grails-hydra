@@ -33,7 +33,12 @@ class DeviceController {
     def update() {
         def id = params.id
         def device = request.JSON
-        respond deviceService.updateDevice(id, device)
+        render deviceService.updateDevice(id, device) as JSON
+    }
+
+    def resources() {
+        def devices =  deviceService.getDevices()
+        respond devices
     }
 
     def handleValidationException(ValidationException validationException) {

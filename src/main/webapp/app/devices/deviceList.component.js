@@ -13,7 +13,7 @@
         }
 
         $ctrl.$onInit = function() {
-            return deviceService.getDevices().then(function(devices) {
+            return deviceService.getDevicesWithResources().then(function(devices) {
                 $ctrl.devices = devices.data;
                 $ctrl.totalDevices = devices.data.length;
             });

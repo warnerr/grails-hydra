@@ -39,7 +39,23 @@ class ExportController {
         respond exportService.updateExport(id, export)
     }
 
+    def save() {
+        def id = params.id
+        def exports = request.JSON
+        render exportService.saveResources(id, exports) as JSON
+    }
+
+    def discover() {
+        def deviceId = params.id
+        respond exportService.getResources(deviceId, true)
+    }
+
+    def resources() {
+        def deviceId = params.id
+        respond exportService.getResources(deviceId, false)
+    }
+
     def handleValidationException(ValidationException validationException) {
-        [problemDescription: validationException.errors[0]]
+        [problemDescription: validationException.errors.toString()]
     }
 }

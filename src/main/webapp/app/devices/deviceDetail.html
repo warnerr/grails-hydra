@@ -1,0 +1,103 @@
+<div layout-align="center center" layout="row">
+    <md-card>
+        <md-card-header>
+            <md-card-header-text layout="row" layout-align="start center">
+                <span class="md-title mdc-text-light-blue">Device</span>
+            </md-card-header-text>
+        </md-card-header>
+        <md-divider></md-divider>
+        <md-card-content>
+            <md-content md-padding>
+                <form name="deviceForm">
+                    <div layout-gt-xs="row">
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Type</label>
+                            <md-select ng-model="$ctrl.device.type" required>
+                                <md-option ng-repeat="type in $ctrl.types" ng-value="type.id">
+                                    {{type.label}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>SubType</label>
+                            <md-select ng-model="$ctrl.device.subType" required>
+                                <md-option ng-repeat="subType in $ctrl.subTypes" ng-value="subType.id">
+                                    {{subType.label}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Name</label>
+                            <input ng-model="$ctrl.device.name" required>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Description</label>
+                            <textarea ng-model="$ctrl.device.description"></textarea>
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="md-block">
+                        <label>Address</label>
+                        <input ng-model="$ctrl.device.address" required>
+                    </md-input-container>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block">
+                            <label>Username</label>
+                            <input ng-model="$ctrl.device.managementUser">
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Password</label>
+                            <input type="password" ng-model="$ctrl.device.managementPassword">
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Domain</label>
+                            <input ng-model="$ctrl.device.domain">
+                        </md-input-container>
+                    </div>
+                    <div layout="row" layout-align="start" ng-hide="!$ctrl.device.id">
+                        <md-button ng-click="$ctrl.discoverResources()" class="md-primary discover-button"
+                                   ng-disabled="deviceForm.$invalid && !$ctrl.device.id">Discover Resources
+                        </md-button>
+                    </div>
+                    <div ng-hide="$ctrl.resources == null || $ctrl.resources.length == 0">
+                        <md-table-container>
+                            <table md-table ng-model="$ctrl.selected" md-progress="promise" multiple="true"
+                                   md-row-select="true">
+                                <thead md-head md-order="$ctrl.query.order" layout-margin>
+                                <tr md-row>
+                                    <th md-column md-order-by="path">Path</th>
+                                    <th md-column>Domain</th>
+                                </tr>
+                                </thead>
+                                <tbody md-body>
+                                <tr md-row md-select="resource" md-select-id="name" md-auto-select
+                                    ng-repeat="resource in $ctrl.resources | orderBy: $ctrl.query.order | limitTo: $ctrl.query.limit : ($ctrl.query.page -1) * $ctrl.query.limit"
+                                    md-on-select="$ctrl.selectResource" md-on-deselect="$ctrl.deselectResource">
+                                    <td md-cell>{{resource.path}}</td>
+                                    <td md-cell>{{resource.authGroup}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </md-table-container>
+                        <md-table-pagination md-limit="$ctrl.query.limit" md-limit-options="$ctrl.limitOptions"
+                                             md-page="$ctrl.query.page" md-total="{{$ctrl.resources.length}}"
+                                             boundary-links="$ctrl.options.boundaryLinks"
+                                             md-page-select="$ctrl.options.pageSelect" md-on-paginate="logPagination">
+
+                        </md-table-pagination>
+                    </div>
+                </form>
+                <div class="" layout="row"
+                     ng-hide="($ctrl.resources == null || $ctrl.resources.length == 0) && $ctrl.device.id != null">
+                    <span flex></span>
+                    <md-button ng-click="$ctrl.gotoDevices()">Cancel</md-button>
+                    <md-button ng-click="$ctrl.saveDevice()" class="md-primary"
+                               ng-disabled="deviceForm.$invalid">Save
+                    </md-button>
+                </div>
+            </md-content>
+            </md-tabs>
+        </md-card-content>
+    </md-card>
+</div>

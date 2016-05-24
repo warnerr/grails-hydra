@@ -1,0 +1,7 @@
+model {
+	Export export
+}
+
+json g.render(export, [excludes: ['id', 'dateCreated', 'lastUpdated']]) {
+    id export.id.toString()
+}

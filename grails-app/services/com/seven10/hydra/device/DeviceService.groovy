@@ -1,5 +1,6 @@
 package com.seven10.hydra.device
 
+import com.seven10.hydra.resource.discovery.ResourceDiscovery
 import grails.transaction.Transactional
 import grails.validation.ValidationException
 import org.bson.types.ObjectId
@@ -7,8 +8,11 @@ import org.bson.types.ObjectId
 @Transactional
 class DeviceService {
 
+    def exportService
+
     def getDevices() {
-        Device.list()
+        List<Device> allDevices = Device.list()
+        allDevices
     }
 
     def getDevice(String deviceId) {
@@ -20,8 +24,7 @@ class DeviceService {
         def newDevice = new Device(device)
         if (newDevice.validate()) {
             newDevice.save()
-        }
-        else {
+        } else {
             throw new ValidationException("Device is not valid", newDevice.errors)
         }
 
@@ -37,8 +40,10 @@ class DeviceService {
 
     def updateDevice(String deviceId, Map deviceUpdates) {
         def device = Device.get(new ObjectId(deviceId))
+        def deviceData = [:] << deviceUpdates
+        deviceData.remove('id')
         if (device) {
-            device.properties = deviceUpdates
+            device.properties = deviceData
             if (device.validate()) {
                 device.save()
             } else {

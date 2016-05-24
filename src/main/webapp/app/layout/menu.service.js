@@ -12,25 +12,25 @@
         var sideMenu = $q.when([
                         {
                             label: 'Dashboard',
-                            url: '#dashboard',
+                            url: 'Dashboard',
                             selected: true,
                             icon: 'zmdi-view-dashboard'
                         },
                         {
                             label: 'Jobs',
-                            url: '#jobs',
+                            url: 'Jobs',
                             selected: false,
                             icon: 'zmdi-case'
                         },
                         {
                             label: 'Devices',
-                            url: '#devices',
+                            url: 'Devices',
                             selected: false,
                             icon: 'zmdi-devices'
                         },
                         {
                             label: 'Settings',
-                            url: '#settings',
+                            url: 'Settings',
                             selected: false,
                             icon: 'zmdi-settings'
                         }]

@@ -15,7 +15,6 @@
             var vm = this;
             vm.sideMenu;
             vm.selectMenu = function (menuItem) {
-                console.log(menuItem);
                 angular.forEach(vm.sideMenu, function (item) {
                     item.selected = false;
                 });
@@ -32,7 +31,7 @@
                 menuService.getSideMenu().then(function (menuItems) {
                     vm.sideMenu = menuItems;
                     angular.forEach(vm.sideMenu, function (item) {
-                        if (item.url.substr(1) === locationPath.substr(1)) {
+                        if (locationPath.indexOf(item.url.toLowerCase()) > 0) {
                             vm.selectMenu(item);
                         }
                     });
@@ -70,7 +69,7 @@
                 }
                 },
                 {
-                    path: '/devices', name: 'Devices', loader: function () {
+                    path: '/devices/...', name: 'Devices', loader: function () {
                     return $ocLazyLoad.load('app/devices/devices.component.js')
                         .then(function () {
                             return 'devices';

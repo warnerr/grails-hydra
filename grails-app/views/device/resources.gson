@@ -3,4 +3,3 @@ model {
 }
 
 json tmpl.device(deviceList ?: [])
-
